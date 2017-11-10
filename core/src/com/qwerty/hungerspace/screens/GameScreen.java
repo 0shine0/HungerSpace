@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.objects.SpaceShip;
+
+import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
+import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 
 /**
  * This screen contains the actual gameplay mechanics and represents what the user the user will play.
@@ -20,6 +25,13 @@ public class GameScreen extends AbstractScreen {
     private Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
     
     SpaceShip playerShip;
+
+    private final int mapWidth = 12;
+    private final int mapHeight = 24;
+    private final int gridDimension = 32;
+    boolean[][] map = new boolean[mapWidth][mapHeight];
+
+    private Vector2 cameraPosition = new Vector2();
 
     public GameScreen(HungerSpaceMain game) {
         super(game);
@@ -37,36 +49,64 @@ public class GameScreen extends AbstractScreen {
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
-        
-        playerShip = new SpaceShip(spaceShip);
+
+        playerShip = new SpaceShip(spaceShip, 0.2f, 500);
+
+        Random random = HungerSpaceMain.getRandom();
+        for (int i = 0; i < mapWidth; i++) {
+            for (int j = 0; j < mapHeight; j++) {
+                map[i][j] = (random.nextInt(2) == 0);
+            }
+        }
+
+        /*
+        boolean[] cellStatus = new boolean[9];
+        for (int iteration = 0; iteration < 5; iteration++) {
+            for (int i = 0; i < mapWidth; i++) {
+                for (int j = 0; j < mapHeight; j++) {
+                    int iter = 0;
+                    for (int ii = -1; ii < 2; ii++) {
+                        for (int jj = -1; jj < 2; jj++) {
+                            cellStatus[iter++] = getMapAt(i + ii, )
+                        }
+                    }
+
+                    boolean
+                    boolean up = getMapAt(i - 1, j - 1);
+                }
+            }
+        }
+        */
     }
 
     @Override
     public void update(float delta) {
-        // TODO Auto-generated method stub
-        if(Gdx.input.isKeyPressed(Keys.LEFT)){
-            playerShip.direction.x = -1.0f;
+        int mouseX = Gdx.input.getX();
+        int mouseY = SCREEN_HEIGHT - Gdx.input.getY();
+
+        float worldX = mouseX + cameraPosition.x - SCREEN_WIDTH / 2;
+        float worldY = mouseY + cameraPosition.y - SCREEN_HEIGHT / 2;
+
+        playerShip.direction = (float)(-Math.PI / 2 + Math.atan2(worldY - playerShip.position.y, worldX - playerShip.position.x));
+
+        if(Gdx.input.isKeyPressed(Keys.W)) {
+            playerShip.applyAcceleration();
         }
-        if(Gdx.input.isKeyPressed(Keys.RIGHT)){
-            playerShip.direction.x = 1.0f;
-        }
-        if(Gdx.input.isKeyPressed(Keys.UP)){
-            playerShip.direction.y = 1.0f;
-        }
-        if(Gdx.input.isKeyPressed(Keys.DOWN)){
-            playerShip.direction.y = -1.0f;
-        }
-        
+
         playerShip.update(delta);
-        
+        cameraPosition.set(playerShip.position.x, playerShip.position.y);
+
+        camera.position.set(cameraPosition, 0);
+        camera.update();
     }
 
     @Override
     public void render(SpriteBatch batch) {
         // TODO Auto-generated method stub
         batch.begin();
+        batch.setProjectionMatrix(camera.combined);
 
-        batch.draw(textureRegions.get("background"), 0, 0, HungerSpaceMain.WIDTH, HungerSpaceMain.HEIGHT);
+        batch.draw(textureRegions.get("background"), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
         playerShip.render(batch);
         batch.end();
@@ -78,4 +118,11 @@ public class GameScreen extends AbstractScreen {
 
     }
 
+    private boolean getMapAt(int i, int j) {
+        if (i >= 0 && j >= 0 && i < mapWidth && j < mapHeight) {
+            return map[i][j];
+        }
+
+        return false;
+    }
 }

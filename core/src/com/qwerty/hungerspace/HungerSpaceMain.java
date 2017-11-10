@@ -15,9 +15,13 @@ import com.qwerty.hungerspace.screens.GameScreensManager;
 import com.qwerty.hungerspace.screens.MenuScreen;
 import com.qwerty.hungerspace.screens.PauseScreen;
 
+import java.util.Random;
+
 public class HungerSpaceMain extends ApplicationAdapter {
-    public static final int WIDTH = 1280;
-    public static final int HEIGHT = 720;
+    public static final int SCREEN_WIDTH = 1280;
+    public static final int SCREEN_HEIGHT = 720;
+
+    public static final float BACKGROUND_SIZE = 1024;
 
     private SpriteBatch batch;
 
@@ -27,6 +31,8 @@ public class HungerSpaceMain extends ApplicationAdapter {
     private AssetManager assetManager;
 
     private OrthographicCamera staticGameCamera;
+
+    private static Random random = new Random();
 
     public MenuScreen menuScreen;
     public GameScreen gameScreen;
@@ -41,8 +47,8 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
         screensManager = new GameScreensManager(batch);
 
-        staticGameCamera = new OrthographicCamera(WIDTH, HEIGHT);
-        staticGameCamera.position.set(WIDTH / 2, HEIGHT / 2, 0);
+        staticGameCamera = new OrthographicCamera(SCREEN_WIDTH, SCREEN_HEIGHT);
+        staticGameCamera.position.set(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0);
         staticGameCamera.update();
 
         assetManager = new AssetManager();
@@ -104,5 +110,9 @@ public class HungerSpaceMain extends ApplicationAdapter {
      */
     public OrthographicCamera getStaticGameCamera() {
         return staticGameCamera;
+    }
+
+    public static Random getRandom() {
+        return random;
     }
 }

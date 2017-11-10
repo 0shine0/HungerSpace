@@ -20,8 +20,8 @@ public class DesktopLauncher {
         }
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = HungerSpaceMain.WIDTH;
-        config.height = HungerSpaceMain.HEIGHT;
+        config.width = HungerSpaceMain.SCREEN_WIDTH;
+        config.height = HungerSpaceMain.SCREEN_HEIGHT;
 		new LwjglApplication(new HungerSpaceMain(), config);
 	}
 }

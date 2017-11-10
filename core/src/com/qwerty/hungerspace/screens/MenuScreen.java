@@ -34,7 +34,7 @@ public class MenuScreen extends AbstractScreen {
     public void render(SpriteBatch batch) {
         batch.begin();
 
-        batch.draw(textureRegions.get("background"), 0, 0, HungerSpaceMain.WIDTH, HungerSpaceMain.HEIGHT);
+        drawBackground(batch);
 
         batch.draw(textureRegions.get("newGameActivated"), 0, 0);
 
@@ -44,5 +44,10 @@ public class MenuScreen extends AbstractScreen {
     @Override
     public void dispose() {
         // TODO Auto-generated method stub
+    }
+
+    private void drawBackground(SpriteBatch batch) {
+        batch.draw(textureRegions.get("background"), 0 ,0);
+        batch.draw(textureRegions.get("background"), HungerSpaceMain.BACKGROUND_SIZE ,0);
     }
 }

@@ -34,22 +34,15 @@ Aestroids/aestroid_gray
   index: -1
 
 textureAtlas2.png
-size: 1024,1024
+size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Background/background
   rotate: false
-  xy: 2, 147
-  size: 512, 512
-  orig: 512, 512
-  offset: 0, 0
-  index: -1
-Background/newGame
-  rotate: false
   xy: 2, 2
-  size: 512, 143
-  orig: 512, 143
+  size: 1024, 1024
+  orig: 1024, 1024
   offset: 0, 0
   index: -1
 
@@ -239,6 +232,47 @@ Blue/Small_ship_blue/5
   index: -1
 
 textureAtlas7.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Small_ship_blue_/1
+  rotate: false
+  xy: 2, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue_/2
+  rotate: false
+  xy: 132, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue_/3
+  rotate: false
+  xy: 262, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue_/4
+  rotate: false
+  xy: 392, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue_/5
+  rotate: false
+  xy: 522, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+
+textureAtlas8.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -265,7 +299,7 @@ Blue/Spacebombs/3
   offset: 0, 0
   index: -1
 
-textureAtlas8.png
+textureAtlas9.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -285,7 +319,7 @@ Blue/Spacemines/2
   offset: 0, 0
   index: -1
 
-textureAtlas9.png
+textureAtlas10.png
 size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -319,249 +353,124 @@ Blue/spaceship_blue_animation/4
   offset: 0, 0
   index: -1
 
-textureAtlas10.png
-size: 2048,1024
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-Effects/Blue Effects/1
-  rotate: false
-  xy: 2, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 0
-Effects/Blue Effects/1
-  rotate: false
-  xy: 2, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 1
-Effects/Blue Effects/1
-  rotate: false
-  xy: 260, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 2
-Effects/Blue Effects/1
-  rotate: false
-  xy: 2, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 3
-Effects/Blue Effects/1
-  rotate: false
-  xy: 260, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 4
-Effects/Blue Effects/1
-  rotate: false
-  xy: 518, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 5
-Effects/Blue Effects/1
-  rotate: false
-  xy: 260, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 6
-Effects/Blue Effects/1
-  rotate: false
-  xy: 518, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 7
-Effects/Blue Effects/1
-  rotate: false
-  xy: 776, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 8
-Effects/Blue Effects/1
-  rotate: false
-  xy: 518, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 9
-Effects/Blue Effects/1
-  rotate: false
-  xy: 776, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 10
-Effects/Blue Effects/1
-  rotate: false
-  xy: 1034, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 11
-Effects/Blue Effects/1
-  rotate: false
-  xy: 776, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 12
-Effects/Blue Effects/1
-  rotate: false
-  xy: 1034, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 13
-Effects/Blue Effects/1
-  rotate: false
-  xy: 1292, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 14
-Effects/Blue Effects/1
-  rotate: false
-  xy: 1034, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 15
-Effects/Blue Effects/1
-  rotate: false
-  xy: 1292, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 16
-
 textureAtlas11.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 2, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 0
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 2, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 1
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 260, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 2
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 2, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 3
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 260, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 4
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 518, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 5
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 260, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 6
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 518, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 7
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 776, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 8
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 518, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 9
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 776, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 10
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 1034, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 11
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 776, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 12
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 1034, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 13
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 1292, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 14
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 1034, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 15
-Effects/Galaxy/galaxy
+Effects/Blue Effects/1
   rotate: false
   xy: 1292, 260
   size: 256, 256
@@ -574,6 +483,131 @@ size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 0
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 5
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 6
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 7
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 9
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 10
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 11
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 12
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 13
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 14
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 15
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 16
+
+textureAtlas13.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 Effects/Proton Star/p_Sprite
   rotate: false
   xy: 2, 518
@@ -694,7 +728,7 @@ Effects/Proton Star/p_Sprite
   offset: 0, 0
   index: 16
 
-textureAtlas13.png
+textureAtlas14.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -819,7 +853,7 @@ Effects/Red Explosion/1
   offset: 0, 0
   index: 16
 
-textureAtlas14.png
+textureAtlas15.png
 size: 4096,256
 format: RGBA8888
 filter: Nearest,Nearest
@@ -853,7 +887,7 @@ Menu Screen/newGameActivated
   offset: 0, 0
   index: -1
 
-textureAtlas15.png
+textureAtlas16.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -915,7 +949,7 @@ Red/spaceship_enemy_red
   offset: 0, 0
   index: -1
 
-textureAtlas16.png
+textureAtlas17.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -942,7 +976,7 @@ Red/comm_redship/3
   offset: 0, 0
   index: -1
 
-textureAtlas17.png
+textureAtlas18.png
 size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1011,7 +1045,7 @@ Red/Enemy_animation/spaceship_enemy_start
   offset: 0, 0
   index: -1
 
-textureAtlas18.png
+textureAtlas19.png
 size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1052,7 +1086,7 @@ Red/small_ship_animation/5
   offset: 0, 0
   index: -1
 
-textureAtlas19.png
+textureAtlas20.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1079,7 +1113,7 @@ Red/Spacebombs/3
   offset: 0, 0
   index: -1
 
-textureAtlas20.png
+textureAtlas21.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
