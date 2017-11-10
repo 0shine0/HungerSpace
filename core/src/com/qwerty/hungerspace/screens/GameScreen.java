@@ -32,7 +32,11 @@ public class GameScreen extends AbstractScreen {
         textureRegions.put("spaceShip15", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/5"));
         
         List<TextureRegion> spaceShip = new ArrayList<TextureRegion>();
-        spaceShip.add(textureRegions.get("spaceShip11"));
+        spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
+        spaceShip.add(new TextureRegion(textureRegions.get("spaceShip12")));
+        spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
+        spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
+        spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
         
         playerShip = new SpaceShip(spaceShip);
     }
@@ -40,21 +44,21 @@ public class GameScreen extends AbstractScreen {
     @Override
     public void update(float delta) {
         // TODO Auto-generated method stub
-        if(Gdx.input.isButtonPressed(Keys.LEFT)){
-            Gdx.app.log("Running:", "hasuidb");
-            playerShip.speed.set(-50.0f, 0.0f);
+        if(Gdx.input.isKeyPressed(Keys.LEFT)){
+            playerShip.direction.x = -1.0f;
         }
-        if(Gdx.input.isButtonPressed(Keys.RIGHT)){
-            playerShip.speed.set(50.0f, 0.0f);
+        if(Gdx.input.isKeyPressed(Keys.RIGHT)){
+            playerShip.direction.x = 1.0f;
         }
-        if(Gdx.input.isButtonPressed(Keys.UP)){
-            playerShip.speed.set(0.0f, 50.0f);
+        if(Gdx.input.isKeyPressed(Keys.UP)){
+            playerShip.direction.y = 1.0f;
         }
-        if(Gdx.input.isButtonPressed(Keys.DOWN)){
-            playerShip.speed.set(0.0f, -50.0f);
+        if(Gdx.input.isKeyPressed(Keys.DOWN)){
+            playerShip.direction.y = -1.0f;
         }
         
         playerShip.update(delta);
+        
     }
 
     @Override
