@@ -40,6 +40,21 @@ public class GameScreen extends AbstractScreen {
     @Override
     public void update(float delta) {
         // TODO Auto-generated method stub
+        if(Gdx.input.isButtonPressed(Keys.LEFT)){
+            Gdx.app.log("Running:", "hasuidb");
+            playerShip.speed.set(-50.0f, 0.0f);
+        }
+        if(Gdx.input.isButtonPressed(Keys.RIGHT)){
+            playerShip.speed.set(50.0f, 0.0f);
+        }
+        if(Gdx.input.isButtonPressed(Keys.UP)){
+            playerShip.speed.set(0.0f, 50.0f);
+        }
+        if(Gdx.input.isButtonPressed(Keys.DOWN)){
+            playerShip.speed.set(0.0f, -50.0f);
+        }
+        
+        playerShip.update(delta);
     }
 
     @Override
