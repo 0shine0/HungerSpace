@@ -1,0 +1,1142 @@
+
+textureAtlas.png
+size: 4096,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Aestroids/aestroid_brown
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Aestroids/aestroid_dark
+  rotate: false
+  xy: 516, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Aestroids/aestroid_gay
+  rotate: false
+  xy: 1030, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: 2
+Aestroids/aestroid_gray
+  rotate: false
+  xy: 1544, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas2.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Background/background
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas3.png
+size: 4096,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Communicationship_blue
+  rotate: false
+  xy: 2, 774
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Blue/alienship_new_2_try
+  rotate: false
+  xy: 2, 260
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/bullet
+  rotate: false
+  xy: 2054, 1156
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Blue/mothership_blue
+  rotate: false
+  xy: 1028, 774
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Blue/space_bomb_blue
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blue/space_mine_blue
+  rotate: false
+  xy: 516, 516
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blue/spaceship_enemy
+  rotate: false
+  xy: 2054, 1286
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas4.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Animation/1
+  rotate: false
+  xy: 2, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/2
+  rotate: false
+  xy: 2, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/3
+  rotate: false
+  xy: 516, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/4
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/5
+  rotate: false
+  xy: 516, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/6
+  rotate: false
+  xy: 1030, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/7
+  rotate: false
+  xy: 516, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/Animation/8
+  rotate: false
+  xy: 1030, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas5.png
+size: 4096,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/communication_ship_animation/1
+  rotate: false
+  xy: 2, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Blue/communication_ship_animation/2
+  rotate: false
+  xy: 1028, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Blue/communication_ship_animation/3
+  rotate: false
+  xy: 2054, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+
+textureAtlas6.png
+size: 4096,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Small_ship_blue/1
+  rotate: false
+  xy: 2, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue/2
+  rotate: false
+  xy: 644, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue/3
+  rotate: false
+  xy: 1286, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue/4
+  rotate: false
+  xy: 1928, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Blue/Small_ship_blue/5
+  rotate: false
+  xy: 2570, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+
+textureAtlas7.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Spacebombs/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blue/Spacebombs/2
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blue/Spacebombs/3
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+
+textureAtlas8.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/Spacemines/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Blue/Spacemines/2
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+
+textureAtlas9.png
+size: 4096,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Blue/spaceship_blue_animation/1
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/spaceship_blue_animation/2
+  rotate: false
+  xy: 516, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/spaceship_blue_animation/3
+  rotate: false
+  xy: 1030, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Blue/spaceship_blue_animation/4
+  rotate: false
+  xy: 1544, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas10.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Effects/Blue Effects/1
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 0
+Effects/Blue Effects/1
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+Effects/Blue Effects/1
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Effects/Blue Effects/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+Effects/Blue Effects/1
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
+Effects/Blue Effects/1
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 5
+Effects/Blue Effects/1
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 6
+Effects/Blue Effects/1
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 7
+Effects/Blue Effects/1
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Effects/Blue Effects/1
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 9
+Effects/Blue Effects/1
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 10
+Effects/Blue Effects/1
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 11
+Effects/Blue Effects/1
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 12
+Effects/Blue Effects/1
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 13
+Effects/Blue Effects/1
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 14
+Effects/Blue Effects/1
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 15
+Effects/Blue Effects/1
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 16
+
+textureAtlas11.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 0
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 5
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 6
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 7
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 9
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 10
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 11
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 12
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 13
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 14
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 15
+Effects/Galaxy/galaxy
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 16
+
+textureAtlas12.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 0
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 5
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 6
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 7
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 9
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 10
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 11
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 12
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 13
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 14
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 15
+Effects/Proton Star/p_Sprite
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 16
+
+textureAtlas13.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Effects/Red Explosion/1
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 0
+Effects/Red Explosion/1
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+Effects/Red Explosion/1
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Effects/Red Explosion/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+Effects/Red Explosion/1
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
+Effects/Red Explosion/1
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 5
+Effects/Red Explosion/1
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 6
+Effects/Red Explosion/1
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 7
+Effects/Red Explosion/1
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 8
+Effects/Red Explosion/1
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 9
+Effects/Red Explosion/1
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 10
+Effects/Red Explosion/1
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 11
+Effects/Red Explosion/1
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 12
+Effects/Red Explosion/1
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 13
+Effects/Red Explosion/1
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 14
+Effects/Red Explosion/1
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 15
+Effects/Red Explosion/1
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 16
+
+textureAtlas14.png
+size: 4096,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Menu Screen/Creditst_buttons
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/Creditst_buttons_pressed
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/exit_buttons
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/exit_buttons_pressed
+  rotate: false
+  xy: 776, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/optionst_buttons
+  rotate: false
+  xy: 1034, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/optionst_buttons_pressed
+  rotate: false
+  xy: 1292, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/play_buttons
+  rotate: false
+  xy: 1550, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/play_buttons_pressed
+  rotate: false
+  xy: 1808, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/play_buttons_pressed
+  rotate: false
+  xy: 2066, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+Menu Screen/play_buttons_pressed_blue
+  rotate: false
+  xy: 2324, 54
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Menu Screen/top_banner
+  rotate: false
+  xy: 2, 260
+  size: 640, 50
+  orig: 640, 50
+  offset: 0, 0
+  index: -1
+
+textureAtlas15.png
+size: 4096,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/Communicationship2
+  rotate: false
+  xy: 2, 774
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Red/alienship_new_red_try
+  rotate: false
+  xy: 2, 260
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/bullet_red
+  rotate: false
+  xy: 2568, 1670
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Red/mothership_try
+  rotate: false
+  xy: 1028, 774
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Red/small_ships
+  rotate: false
+  xy: 2054, 1286
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/space_bomb
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Red/space_mine
+  rotate: false
+  xy: 2054, 1028
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Red/spaceship_enemy_red
+  rotate: false
+  xy: 516, 260
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas16.png
+size: 4096,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/comm_redship/1
+  rotate: false
+  xy: 2, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Red/comm_redship/2
+  rotate: false
+  xy: 1028, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Red/comm_redship/3
+  rotate: false
+  xy: 2054, 2
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+
+textureAtlas17.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/Enemy_animation/1
+  rotate: false
+  xy: 2, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/2
+  rotate: false
+  xy: 2, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/3
+  rotate: false
+  xy: 516, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/4
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/5
+  rotate: false
+  xy: 516, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/6
+  rotate: false
+  xy: 1030, 1030
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/7
+  rotate: false
+  xy: 516, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/8
+  rotate: false
+  xy: 1030, 516
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Red/Enemy_animation/spaceship_enemy_start
+  rotate: false
+  xy: 1030, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+textureAtlas18.png
+size: 4096,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/small_ship_animation/1
+  rotate: false
+  xy: 2, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Red/small_ship_animation/2
+  rotate: false
+  xy: 644, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Red/small_ship_animation/3
+  rotate: false
+  xy: 1286, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Red/small_ship_animation/4
+  rotate: false
+  xy: 1928, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+Red/small_ship_animation/5
+  rotate: false
+  xy: 2570, 2
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
+
+textureAtlas19.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/Spacebombs/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Red/Spacebombs/2
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Red/Spacebombs/3
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+
+textureAtlas20.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Red/Spacemines/1
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Red/Spacemines/2
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

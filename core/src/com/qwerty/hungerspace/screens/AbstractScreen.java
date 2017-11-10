@@ -8,55 +8,57 @@ import com.qwerty.hungerspace.assets.AssetHolder;
 
 /**
  * Abstract class which can be extended to define new screens.
- * @author shine
  *
+ * @author shine
  */
 public abstract class AbstractScreen {
     /**
-     * The active camera that the screen should render through. Note that multiple camera's are 
+     * The active camera that the screen should render through. Note that multiple camera's are
      * permitted in a single screen but only one camera can be active at a given time.
      */
     protected OrthographicCamera camera;
-    
+
     protected AssetHolder assetHolder;
     protected AssetManager assetManager;
-    
+
     protected GameScreensManager screensManager;
-    
+
     protected HungerSpaceMain game;
-    
-    public AbstractScreen(HungerSpaceMain game){
+
+    public AbstractScreen(HungerSpaceMain game) {
         this.game = game;
-        
+
         this.camera = game.getStaticGameCamera();
-        
+
         this.assetHolder = game.getAssetHolder();
         this.assetManager = game.getAssetManager();
-        
+
         this.screensManager = game.getScreensManager();
     }
-    
+
     /**
      * Used to initialize the screen and define all the parameters and assets for the screen again.
      */
     public abstract void initialize();
-    
+
     /**
-     * Runs on every frame of the game if current screen is active. Usually used to handleInput and 
+     * Runs on every frame of the game if current screen is active. Usually used to handleInput and
      * process the logic of game for current screen.
+     *
      * @param delta The time in seconds that has passed since the last frame.
      */
     public abstract void update(float delta);
-    
+
     /**
-     * Runs on every frame of the game if current screen is active. Usually used to draw images and 
+     * Runs on every frame of the game if current screen is active. Usually used to draw images and
      * assets to the screen using a canvas.
+     *
      * @param batch The canvas on which the assets and images are drawn.
      */
     public abstract void render(SpriteBatch batch);
-    
+
     /**
-     * Runs when we dispose a screen. Note that closing a screen is not disposing it. Usually runs 
+     * Runs when we dispose a screen. Note that closing a screen is not disposing it. Usually runs
      * when we close the game.
      */
     public abstract void dispose();
