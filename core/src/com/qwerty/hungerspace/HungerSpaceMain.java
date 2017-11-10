@@ -9,12 +9,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.qwerty.hungerspace.assets.AssetHolder;
+import com.qwerty.hungerspace.screens.AbstractScreen;
 import com.qwerty.hungerspace.screens.EndGameScreen;
 import com.qwerty.hungerspace.screens.GameScreen;
 import com.qwerty.hungerspace.screens.GameScreensManager;
 import com.qwerty.hungerspace.screens.MenuScreen;
 import com.qwerty.hungerspace.screens.PauseScreen;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class HungerSpaceMain extends ApplicationAdapter {
@@ -34,10 +37,7 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
     private static Random random = new Random();
 
-    public MenuScreen menuScreen;
-    public GameScreen gameScreen;
-    public PauseScreen pauseScreen;
-    public EndGameScreen endScreen;
+    public Map<String, AbstractScreen> screens = new HashMap<String, AbstractScreen>();
 
     @Override
     public void create() {
@@ -63,9 +63,9 @@ public class HungerSpaceMain extends ApplicationAdapter {
         assetHolder = new AssetHolder();
         assetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
 
-        menuScreen = new MenuScreen(this);
-        gameScreen = new GameScreen(this);
-        screensManager.pushScreen(gameScreen);
+        screens.put("menu", new MenuScreen(this));
+        screens.put("game", new GameScreen(this));
+        screensManager.pushScreen(screens.get("menu"));
     }
 
     @Override

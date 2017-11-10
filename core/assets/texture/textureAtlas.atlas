@@ -860,28 +860,35 @@ filter: Nearest,Nearest
 repeat: none
 Menu Screen/exit
   rotate: false
-  xy: 2, 2
+  xy: 1028, 2
   size: 512, 143
   orig: 512, 143
   offset: 0, 0
   index: -1
 Menu Screen/exitActivated
   rotate: false
-  xy: 516, 2
+  xy: 1542, 2
   size: 512, 143
   orig: 512, 143
   offset: 0, 0
   index: -1
+Menu Screen/logo
+  rotate: false
+  xy: 2, 2
+  size: 1024, 143
+  orig: 1024, 143
+  offset: 0, 0
+  index: -1
 Menu Screen/newGame
   rotate: false
-  xy: 1030, 2
+  xy: 2056, 2
   size: 512, 143
   orig: 512, 143
   offset: 0, 0
   index: -1
 Menu Screen/newGameActivated
   rotate: false
-  xy: 1544, 2
+  xy: 2570, 2
   size: 512, 143
   orig: 512, 143
   offset: 0, 0
