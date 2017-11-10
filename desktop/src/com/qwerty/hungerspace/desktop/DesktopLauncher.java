@@ -9,7 +9,7 @@ import com.qwerty.hungerspace.HungerSpaceMain;
 public class DesktopLauncher {
     private static boolean rebuildAtlas = false;
     private static boolean drawDebugOutline = false;
-    
+
 	public static void main (String[] arg) {
 	    if(rebuildAtlas){
             Settings settings = new Settings();
@@ -20,8 +20,8 @@ public class DesktopLauncher {
         }
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = 711;
-        config.height = 400;
+        config.width = HungerSpaceMain.WIDTH;
+        config.height = HungerSpaceMain.HEIGHT;
 		new LwjglApplication(new HungerSpaceMain(), config);
 	}
 }

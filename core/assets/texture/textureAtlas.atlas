@@ -40,9 +40,16 @@ filter: Nearest,Nearest
 repeat: none
 Background/background
   rotate: false
-  xy: 2, 2
+  xy: 2, 147
   size: 512, 512
   orig: 512, 512
+  offset: 0, 0
+  index: -1
+Background/newGame
+  rotate: false
+  xy: 2, 2
+  size: 512, 143
+  orig: 512, 143
   offset: 0, 0
   index: -1
 
@@ -813,85 +820,36 @@ Effects/Red Explosion/1
   index: 16
 
 textureAtlas14.png
-size: 4096,512
+size: 4096,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Menu Screen/Creditst_buttons
+Menu Screen/exit
   rotate: false
   xy: 2, 2
-  size: 256, 256
-  orig: 256, 256
+  size: 512, 143
+  orig: 512, 143
   offset: 0, 0
   index: -1
-Menu Screen/Creditst_buttons_pressed
+Menu Screen/exitActivated
   rotate: false
-  xy: 260, 2
-  size: 256, 256
-  orig: 256, 256
+  xy: 516, 2
+  size: 512, 143
+  orig: 512, 143
   offset: 0, 0
   index: -1
-Menu Screen/exit_buttons
+Menu Screen/newGame
   rotate: false
-  xy: 518, 2
-  size: 256, 256
-  orig: 256, 256
+  xy: 1030, 2
+  size: 512, 143
+  orig: 512, 143
   offset: 0, 0
   index: -1
-Menu Screen/exit_buttons_pressed
+Menu Screen/newGameActivated
   rotate: false
-  xy: 776, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/optionst_buttons
-  rotate: false
-  xy: 1034, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/optionst_buttons_pressed
-  rotate: false
-  xy: 1292, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/play_buttons
-  rotate: false
-  xy: 1550, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/play_buttons_pressed
-  rotate: false
-  xy: 1808, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/play_buttons_pressed
-  rotate: false
-  xy: 2066, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 2
-Menu Screen/play_buttons_pressed_blue
-  rotate: false
-  xy: 2324, 54
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-Menu Screen/top_banner
-  rotate: false
-  xy: 2, 260
-  size: 640, 50
-  orig: 640, 50
+  xy: 1544, 2
+  size: 512, 143
+  orig: 512, 143
   offset: 0, 0
   index: -1
 

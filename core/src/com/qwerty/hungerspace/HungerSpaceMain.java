@@ -16,8 +16,8 @@ import com.qwerty.hungerspace.screens.MenuScreen;
 import com.qwerty.hungerspace.screens.PauseScreen;
 
 public class HungerSpaceMain extends ApplicationAdapter {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 512;
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 720;
 
     private SpriteBatch batch;
 
