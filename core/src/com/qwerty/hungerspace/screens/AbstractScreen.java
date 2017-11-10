@@ -9,7 +9,6 @@ import com.qwerty.hungerspace.assets.AssetHolder;
 /**
  * Abstract class which can be extended to define new screens.
  *
- * @author shine
  */
 public abstract class AbstractScreen {
     /**
@@ -35,11 +34,6 @@ public abstract class AbstractScreen {
 
         this.screensManager = game.getScreensManager();
     }
-
-    /**
-     * Used to initialize the screen and define all the parameters and assets for the screen again.
-     */
-    public abstract void initialize();
 
     /**
      * Runs on every frame of the game if current screen is active. Usually used to handleInput and

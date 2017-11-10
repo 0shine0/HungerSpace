@@ -58,7 +58,8 @@ public class HungerSpaceMain extends ApplicationAdapter {
         assetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
 
         menuScreen = new MenuScreen(this);
-        screensManager.pushScreen(menuScreen);
+        gameScreen = new GameScreen(this);
+        screensManager.pushScreen(gameScreen);
     }
 
     @Override

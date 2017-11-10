@@ -7,19 +7,11 @@ import com.qwerty.hungerspace.HungerSpaceMain;
  * This screen is used to represent the ending of a play session after the user has either lost, won
  * or quit the session.
  *
- * @author shine
  */
 public class EndGameScreen extends AbstractScreen {
 
     public EndGameScreen(HungerSpaceMain game) {
         super(game);
-        initialize();
-    }
-
-    @Override
-    public void initialize() {
-        // TODO Auto-generated method stub
-
     }
 
     @Override

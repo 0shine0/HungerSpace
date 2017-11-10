@@ -7,19 +7,11 @@ import com.qwerty.hungerspace.HungerSpaceMain;
  * This screen represents the screen that will be displayed when user pauses the game in middle of
  * his play session.
  *
- * @author shine
  */
 public class PauseScreen extends AbstractScreen {
 
     public PauseScreen(HungerSpaceMain game) {
         super(game);
-        initialize();
-    }
-
-    @Override
-    public void initialize() {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
