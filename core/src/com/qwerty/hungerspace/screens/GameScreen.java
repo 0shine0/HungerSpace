@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.objects.SpaceShip;
 
+import static com.qwerty.hungerspace.HungerSpaceMain.BACKGROUND_SIZE;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 
@@ -106,7 +107,7 @@ public class GameScreen extends AbstractScreen {
         batch.begin();
         batch.setProjectionMatrix(camera.combined);
 
-        batch.draw(textureRegions.get("background"), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        drawBackground(batch);
 
         playerShip.render(batch);
         batch.end();
@@ -124,5 +125,19 @@ public class GameScreen extends AbstractScreen {
         }
 
         return false;
+    }
+
+    private void drawBackground(SpriteBatch batch) {
+        int x1 = (int)Math.floor((camera.position.x - SCREEN_WIDTH/2) / BACKGROUND_SIZE);
+        int x2 = (int)Math.floor((camera.position.x + SCREEN_WIDTH/2) / BACKGROUND_SIZE);
+
+        int y1 = (int)Math.floor((camera.position.y - SCREEN_HEIGHT/2) / BACKGROUND_SIZE);
+        int y2 = (int)Math.floor((camera.position.y + SCREEN_HEIGHT/2) / BACKGROUND_SIZE);
+
+        for (float i = x1; i <= x2; i++) {
+            for (float j = y1; j <= y2; j++) {
+                batch.draw(textureRegions.get("background"), i * BACKGROUND_SIZE - i, j * BACKGROUND_SIZE - j);
+            }
+        }
     }
 }

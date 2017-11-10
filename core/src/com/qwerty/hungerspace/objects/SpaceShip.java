@@ -32,7 +32,7 @@ public class SpaceShip {
     }
     
     public void update(float delta){
-        speed.scl(0.99f);
+        speed.scl(0.995f);
 
         if (isAccelerating) {
             speed.x -= (float)Math.sin(direction) * delta * accelerationFactor;
