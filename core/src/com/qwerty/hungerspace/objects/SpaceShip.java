@@ -20,9 +20,11 @@ public class SpaceShip extends SphereObject{
     private float accelerationFactor;
     private boolean isAccelerating;
 
-    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor) {
+    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor, Vector2 pos) {
         this.scale = scale;
         this.accelerationFactor = accelerationFactor;
+        
+        position = pos;
         
         health = 100;
         
@@ -74,6 +76,13 @@ public class SpaceShip extends SphereObject{
             
             cooldownTime = resetTime;
         }
+    }
+    
+    public void fireClientLaserShot(Vector2 pos, float dir){
+        LaserShot laser = new LaserShot(GameScreen.textureRegions.get("rLaserShot"), 0.3f, pos, laserSpeed, dir);
+        GameScreen.rigidBodies.add(laser);
+        exceptions.add(laser);
+        laser.exceptions.add(this); 
     }
     
     public void applyAcceleration() {
