@@ -30,10 +30,9 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
     private GameScreensManager screensManager;
 
-    private AssetHolder assetHolder;
-    private AssetManager assetManager;
-
     private OrthographicCamera staticGameCamera;
+
+    private AssetManager assetManager;
 
     private static Random random = new Random(666);
 
@@ -62,8 +61,7 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
         Texture.setAssetManager(assetManager);
 
-        assetHolder = new AssetHolder();
-        assetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
+        AssetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
 
         screens.put("intro", new IntroScreen(this));
         screens.put("menu", new MenuScreen(this));
@@ -92,20 +90,6 @@ public class HungerSpaceMain extends ApplicationAdapter {
      */
     public GameScreensManager getScreensManager() {
         return screensManager;
-    }
-
-    /**
-     * @return the assetHolder
-     */
-    public AssetHolder getAssetHolder() {
-        return assetHolder;
-    }
-
-    /**
-     * @return the assetManager
-     */
-    public AssetManager getAssetManager() {
-        return assetManager;
     }
 
     /**

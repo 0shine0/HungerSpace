@@ -18,13 +18,13 @@ Aestroids/aestroid_dark
   orig: 424, 348
   offset: 0, 0
   index: -1
-Aestroids/aestroid_gay
+Aestroids/aestroid_gay2
   rotate: false
   xy: 450, 2
   size: 415, 392
   orig: 415, 392
   offset: 0, 0
-  index: 2
+  index: -1
 Aestroids/aestroid_gray
   rotate: false
   xy: 1293, 70

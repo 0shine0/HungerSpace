@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.qwerty.hungerspace.HungerSpaceMain;
+import com.qwerty.hungerspace.assets.AssetHolder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,12 +33,12 @@ public class MenuScreen extends AbstractScreen {
     public MenuScreen(HungerSpaceMain game) {
         super(game);
 
-        textureRegions.put("background", assetHolder.textureAtlas.findRegion("Background/background"));
-        textureRegions.put("logo", assetHolder.textureAtlas.findRegion("Menu Screen/logo"));
-        textureRegions.put("newGame", assetHolder.textureAtlas.findRegion("Menu Screen/newGame"));
-        textureRegions.put("newGameActivated", assetHolder.textureAtlas.findRegion("Menu Screen/newGameActivated"));
-        textureRegions.put("exit", assetHolder.textureAtlas.findRegion("Menu Screen/exit"));
-        textureRegions.put("exitActivated", assetHolder.textureAtlas.findRegion("Menu Screen/exitActivated"));
+        textureRegions.put("background", AssetHolder.textureAtlas.findRegion("Background/background"));
+        textureRegions.put("logo", AssetHolder.textureAtlas.findRegion("Menu Screen/logo"));
+        textureRegions.put("newGame", AssetHolder.textureAtlas.findRegion("Menu Screen/newGame"));
+        textureRegions.put("newGameActivated", AssetHolder.textureAtlas.findRegion("Menu Screen/newGameActivated"));
+        textureRegions.put("exit", AssetHolder.textureAtlas.findRegion("Menu Screen/exit"));
+        textureRegions.put("exitActivated", AssetHolder.textureAtlas.findRegion("Menu Screen/exitActivated"));
 
         buttonHeight = textureRegions.get("newGame").getRegionHeight();
         buttonStartX = (SCREEN_WIDTH - textureRegions.get("newGame").getRegionWidth()) / 2;

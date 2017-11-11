@@ -1,10 +1,8 @@
 package com.qwerty.hungerspace.screens;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.qwerty.hungerspace.HungerSpaceMain;
-import com.qwerty.hungerspace.assets.AssetHolder;
 
 /**
  * Abstract class which can be extended to define new screens.
@@ -17,9 +15,6 @@ public abstract class AbstractScreen {
      */
     protected Camera camera;
 
-    protected AssetHolder assetHolder;
-    protected AssetManager assetManager;
-
     protected GameScreensManager screensManager;
 
     protected HungerSpaceMain game;
@@ -28,9 +23,6 @@ public abstract class AbstractScreen {
         this.game = game;
 
         this.camera = game.getStaticGameCamera();
-
-        this.assetHolder = game.getAssetHolder();
-        this.assetManager = game.getAssetManager();
 
         this.screensManager = game.getScreensManager();
     }

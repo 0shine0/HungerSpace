@@ -1,18 +1,8 @@
 package com.qwerty.hungerspace.screens;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -20,10 +10,19 @@ import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.qwerty.hungerspace.HungerSpaceMain;
+import com.qwerty.hungerspace.assets.AssetHolder;
 import com.qwerty.hungerspace.objects.Asteroid;
 import com.qwerty.hungerspace.objects.Poof;
 import com.qwerty.hungerspace.objects.SpaceObject;
 import com.qwerty.hungerspace.objects.SpaceShip;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 import static com.qwerty.hungerspace.HungerSpaceMain.BACKGROUND_SIZE;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
@@ -48,11 +47,6 @@ public class GameScreen extends AbstractScreen {
     private static String serverUrl;
     private Socket socket;
 
-    private final int mapWidth = 12;
-    private final int mapHeight = 24;
-    private final int gridDimension = 32;
-    boolean[][] map = new boolean[mapWidth][mapHeight];
-
     private Vector2 cameraPosition = new Vector2();
     
     private boolean gameOver = false;
@@ -61,59 +55,44 @@ public class GameScreen extends AbstractScreen {
     public GameScreen(HungerSpaceMain game) {
         super(game);
         
-        serverUrl = "localhost";
+        serverUrl = "192.168.43.17";
         
-        textureRegions.put("background", assetHolder.textureAtlas.findRegion("Background/background"));
-        textureRegions.put("spaceShip11", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/1"));
-        textureRegions.put("spaceShip12", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/2"));
-        textureRegions.put("spaceShip13", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/3"));
-        textureRegions.put("spaceShip14", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/4"));
-        textureRegions.put("spaceShip15", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/5"));
-        textureRegions.put("laserShot", assetHolder.textureAtlas.findRegion("Blue/bullet"));
+        textureRegions.put("background", AssetHolder.textureAtlas.findRegion("Background/background"));
+        textureRegions.put("spaceShip11", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/1"));
+        textureRegions.put("spaceShip12", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/2"));
+        textureRegions.put("spaceShip13", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/3"));
+        textureRegions.put("spaceShip14", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/4"));
+        textureRegions.put("spaceShip15", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/5"));
+        textureRegions.put("laserShot", AssetHolder.textureAtlas.findRegion("Blue/bullet"));
         
-        textureRegions.put("spaceShip21", assetHolder.textureAtlas.findRegion("Red/small_ship_animation/1"));
-        textureRegions.put("spaceShip22", assetHolder.textureAtlas.findRegion("Red/small_ship_animation/2"));
-        textureRegions.put("spaceShip23", assetHolder.textureAtlas.findRegion("Red/small_ship_animation/3"));
-        textureRegions.put("spaceShip24", assetHolder.textureAtlas.findRegion("Red/small_ship_animation/4"));
-        textureRegions.put("spaceShip25", assetHolder.textureAtlas.findRegion("Red/small_ship_animation/5"));
-        textureRegions.put("rLaserShot", assetHolder.textureAtlas.findRegion("Red/bullet_red"));
+        textureRegions.put("spaceShip21", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/1"));
+        textureRegions.put("spaceShip22", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/2"));
+        textureRegions.put("spaceShip23", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/3"));
+        textureRegions.put("spaceShip24", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/4"));
+        textureRegions.put("spaceShip25", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/5"));
+        textureRegions.put("rLaserShot", AssetHolder.textureAtlas.findRegion("Red/bullet_red"));
         
-        textureRegions.put("brownAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
-        textureRegions.put("darkAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
-        textureRegions.put("greyAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gay_2"));
-        textureRegions.put("grey2Aestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gray"));
-        textureRegions.put("boundary", assetHolder.textureAtlas.findRegion("Background/boundary"));
+        textureRegions.put("brownAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
+        textureRegions.put("darkAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
+        textureRegions.put("greyAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_gay2"));
+        textureRegions.put("grey2Aestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_gray"));
+        textureRegions.put("boundary", AssetHolder.textureAtlas.findRegion("Background/boundary"));
         int m = (HungerSpaceMain.SCREEN_WIDTH * 2)/200;
         int n = (HungerSpaceMain.SCREEN_HEIGHT * 2)/200;
         
         String a1 = "brownAestroid";
         String a2 = "darkAestroid";
         String a3 = "grey2Aestroid";    
-        String a;
+        String a4 = "greyAestroid";
         Random rand = HungerSpaceMain.getRandom();
         for(int i=0; i< m; i++){
             for(int j=0; j< n; j++){                
                 if(rand.nextBoolean()){
                     int choice = rand.nextInt(4);
-                    if(choice == 0){
-                        a = a1;
-                    }else if(choice == 1){
-                        a = a2;
-                    }else if(choice == 2){
-                        a = a3;
-                    }else{
-                        a = a3;
-                    }
-                    Gdx.app.log("a", a);
+
+                    String a = choice == 0? a1: choice == 1? a2: choice == 2? a3: a4;
                     rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f)));
                 }
-            }
-        }
-
-        Random random = HungerSpaceMain.getRandom();
-        for (int i = 0; i < mapWidth; i++) {
-            for (int j = 0; j < mapHeight; j++) {
-                map[i][j] = (random.nextInt(2) == 0);
             }
         }
         
@@ -169,8 +148,6 @@ public class GameScreen extends AbstractScreen {
         particles.removeAll(toRemoveParticles);
         toRemoveParticles.clear();
 
-        cameraPosition.set(playerShip.position.x, playerShip.position.y);
-        
         if(playerShip != null){
             cameraPosition.set(playerShip.position.x, playerShip.position.y);
         }
