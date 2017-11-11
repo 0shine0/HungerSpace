@@ -7,16 +7,12 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.qwerty.hungerspace.screens.GameScreen;
 
-public class SpaceShip {
-    public TextureRegion spaceShip;
+public class SpaceShip extends SphereObject{
     Animation<TextureRegion> spaceAnim;
     float animTime;
-    public Vector2 speed = new Vector2();
-    public Vector2 position = new Vector2();
-    public float direction;
-
-    private float scale;
+    
     private float accelerationFactor;
     private boolean isAccelerating;
 
@@ -28,7 +24,9 @@ public class SpaceShip {
         spaceAnim.setPlayMode(PlayMode.LOOP);
         
         animTime = 0.0f;
-        spaceShip = (TextureRegion) spaceAnim.getKeyFrame(animTime, true);
+        objectImage = (TextureRegion) spaceAnim.getKeyFrame(animTime, true);
+
+        updateCollider();
     }
     
     public void update(float delta){
@@ -43,18 +41,26 @@ public class SpaceShip {
         position.y += speed.y * delta;
 
         animTime += delta;
-        spaceShip = (TextureRegion) spaceAnim.getKeyFrame(animTime);
+        objectImage = (TextureRegion) spaceAnim.getKeyFrame(animTime);
 
         isAccelerating = false;
+        
+        handleCollisions();
     }
     
-    public void render(SpriteBatch batch) {
-        batch.draw(spaceShip, position.x - spaceShip.getRegionWidth()/2, position.y - spaceShip.getRegionHeight()/2,
-                spaceShip.getRegionWidth()/2, spaceShip.getRegionHeight()/2, spaceShip.getRegionWidth(),
-                spaceShip.getRegionHeight(), scale, scale, direction * 180 / 3.141f);
-    }
-
     public void applyAcceleration() {
         isAccelerating = true;
+    }
+    
+    private void handleCollisions(){
+        for(SpaceObject body : GameScreen.rigidBodies){
+            if(this == body){
+                continue;
+            }
+            
+            if(this.collidesWith((SphereObject)body)){
+                speed = speed.scl(-1.0f);
+            }
+        }
     }
 }

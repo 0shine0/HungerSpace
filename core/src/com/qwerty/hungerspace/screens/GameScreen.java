@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.HungerSpaceMain;
+import com.qwerty.hungerspace.objects.Asteroid;
+import com.qwerty.hungerspace.objects.SpaceObject;
 import com.qwerty.hungerspace.objects.SpaceShip;
 
 import static com.qwerty.hungerspace.HungerSpaceMain.BACKGROUND_SIZE;
@@ -24,6 +26,7 @@ import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
  */
 public class GameScreen extends AbstractScreen {
     private Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
+    public static List<SpaceObject> rigidBodies = new ArrayList<SpaceObject>();
     
     SpaceShip playerShip;
 
@@ -43,6 +46,7 @@ public class GameScreen extends AbstractScreen {
         textureRegions.put("spaceShip13", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/3"));
         textureRegions.put("spaceShip14", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/4"));
         textureRegions.put("spaceShip15", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/5"));
+        textureRegions.put("brownAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
         
         List<TextureRegion> spaceShip = new ArrayList<TextureRegion>();
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
@@ -52,6 +56,8 @@ public class GameScreen extends AbstractScreen {
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
 
         playerShip = new SpaceShip(spaceShip, 0.2f, 500);
+        rigidBodies.add(playerShip);
+        rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get("brownAestroid")), 0.3f, new Vector2(150.0f, 150.0f)));
 
         Random random = HungerSpaceMain.getRandom();
         for (int i = 0; i < mapWidth; i++) {
@@ -61,11 +67,11 @@ public class GameScreen extends AbstractScreen {
         }
 
         /*
-        boolean[] cellStatus = new boolean[9];
         for (int iteration = 0; iteration < 5; iteration++) {
             for (int i = 0; i < mapWidth; i++) {
                 for (int j = 0; j < mapHeight; j++) {
-                    int iter = 0;
+
+                    int liveNeighbors = 0;
                     for (int ii = -1; ii < 2; ii++) {
                         for (int jj = -1; jj < 2; jj++) {
                             cellStatus[iter++] = getMapAt(i + ii, )
@@ -99,6 +105,8 @@ public class GameScreen extends AbstractScreen {
 
         camera.position.set(cameraPosition, 0);
         camera.update();
+
+        Gdx.app.log("ASD", playerShip.position.x + " " + playerShip.position.y);
     }
 
     @Override
@@ -108,8 +116,15 @@ public class GameScreen extends AbstractScreen {
         batch.setProjectionMatrix(camera.combined);
 
         drawBackground(batch);
+<<<<<<< HEAD
+=======
 
-        playerShip.render(batch);
+        for (SpaceObject rigidBody : rigidBodies) {
+            rigidBody.render(batch);
+
+        }
+>>>>>>> b17d57a67d08317925dffffa98fb9ac62d08d974
+
         batch.end();
     }
 
