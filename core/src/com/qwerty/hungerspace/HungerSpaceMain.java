@@ -7,6 +7,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.qwerty.hungerspace.assets.AssetHolder;
@@ -40,6 +41,8 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
     public static Map<String, Sound> sounds = new HashMap<String, Sound>();
 
+    public static BitmapFont font;
+
     @Override
     public void create() {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -62,6 +65,8 @@ public class HungerSpaceMain extends ApplicationAdapter {
         Texture.setAssetManager(assetManager);
 
         AssetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
+
+        font = new BitmapFont(Gdx.files.internal("fonts/baron-neue.fnt"), Gdx.files.internal("fonts/baron-neue.png"), false);
 
         screens.put("intro", new IntroScreen(this));
         screens.put("menu", new MenuScreen(this));

@@ -17,6 +17,7 @@ import java.util.List;
 import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
+import static com.qwerty.hungerspace.HungerSpaceMain.font;
 import static java.awt.Color.PINK;
 import static java.awt.SystemColor.text;
 
@@ -28,7 +29,6 @@ import static java.awt.SystemColor.text;
 public class IntroScreen extends AbstractScreen {
     private float timeElapsed = 0;
 
-    private BitmapFont font;
     private float lineHeight;
     private static final float margin = 20;
 
@@ -41,8 +41,9 @@ public class IntroScreen extends AbstractScreen {
 
     public IntroScreen(HungerSpaceMain game) {
         super(game);
-        font = new BitmapFont(Gdx.files.internal("fonts/baron-neue.fnt"), Gdx.files.internal("fonts/baron-neue.png"), false);
+
         lineHeight = font.getLineHeight();
+
         fbo = FrameBuffer.createFrameBuffer(Pixmap.Format.RGB565, SCREEN_WIDTH, SCREEN_HEIGHT, false);
         fboTr = new TextureRegion(fbo.getColorBufferTexture());
         fboSp = new Sprite(fboTr);
@@ -73,7 +74,11 @@ public class IntroScreen extends AbstractScreen {
                 "uniform mat4 u_projTrans;\n" +
                 "\n" +
                 "void main() {\n" +
-                "        float xScale = 1 - v_texCoords.y/2;\n" +
+                "        const float x1 = 1;\n" +
+                "        const float y1 = 0;\n" +
+                "        const float x2 = 0.3f;\n" +
+                "        const float y2 = 1;\n" +
+                "        float xScale = x1 + (v_texCoords.y - y1) / ((y2 - y1) / (x2 - x1));\n" +
                 "        float x = (v_texCoords.x - 0.5f) / xScale + 0.5f;\n" +
                 "        vec3 color = texture2D(u_texture, vec2(x, v_texCoords.y)).rgb;\n" +
                 "\n" +

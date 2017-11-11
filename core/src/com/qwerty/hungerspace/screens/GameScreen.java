@@ -3,6 +3,7 @@ package com.qwerty.hungerspace.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -24,9 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static com.qwerty.hungerspace.HungerSpaceMain.BACKGROUND_SIZE;
-import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
-import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
+import static com.qwerty.hungerspace.HungerSpaceMain.*;
 
 /**
  * This screen contains the actual gameplay mechanics and represents what the user the user will play.
@@ -114,6 +113,10 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void update(float delta) {
+        if(gameOver){
+            return;
+        }
+
         int mouseX = Gdx.input.getX();
         int mouseY = SCREEN_HEIGHT - Gdx.input.getY();
 
@@ -184,15 +187,6 @@ public class GameScreen extends AbstractScreen {
             enemyLaserFired = false;
         }
         
-        if(gameOver){
-            if(won){
-                screensManager.popScreen();
-            }
-            else{
-                screensManager.popScreen();
-            }
-        }
-        
         for(SpaceObject obj : toRemoveRigidBody){
             obj.destroy();
         }
@@ -213,6 +207,14 @@ public class GameScreen extends AbstractScreen {
 
         for (SpaceObject particle : particles) {
             particle.render(batch);
+        }
+
+        if (gameOver) {
+            font.getData().setScale(2);
+
+            GlyphLayout layout = new GlyphLayout(font, won? "l33t h4x0r!": "get rekt nub!");
+
+            font.draw(batch, layout, SCREEN_WIDTH/2, SCREEN_HEIGHT/2 - 20);
         }
 
         batch.end();
