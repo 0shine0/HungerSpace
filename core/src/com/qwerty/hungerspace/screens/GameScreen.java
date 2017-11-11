@@ -78,8 +78,8 @@ public class GameScreen extends AbstractScreen {
 
         textureRegions.put("healthBar", AssetHolder.textureAtlas.findRegion("HUD/healthBar"));
         textureRegions.put("healthBarOrange", AssetHolder.textureAtlas.findRegion("HUD/healthBarOrange"));
-        textureRegions.put("healthBarElement", AssetHolder.textureAtlas.findRegion("HUD/healthBarElement"));
-        textureRegions.put("healthBarElementOrange", AssetHolder.textureAtlas.findRegion("HUD/healthBarElementOrange"));
+        textureRegions.put("healthBarElement", AssetHolder.textureAtlas.findRegion("HUD/healthBarBlueElement"));
+        textureRegions.put("healthBarOrangeElement", AssetHolder.textureAtlas.findRegion("HUD/healthBarOrangeElement"));
 
         textureRegions.put("brownAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
         textureRegions.put("darkAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
@@ -219,18 +219,18 @@ public class GameScreen extends AbstractScreen {
             SpaceObject blueShip = playerShip.laserKey.charAt(0) == 'r'? enemyShip: playerShip;
 
             final int margin = 20;
-            int y = SCREEN_HEIGHT - margin - textureRegions.get("healthBar").getRegionHeight();
+            final float y = camera.position.y + SCREEN_HEIGHT/2 - margin - textureRegions.get("healthBar").getRegionHeight();
 
-            int x = margin;
+            float x = camera.position.x - SCREEN_WIDTH/2 + margin;
             batch.draw(textureRegions.get("healthBar"), x, y);
             for (int i = 0; i < blueShip.health * 0.77; i++) {
-                batch.draw(textureRegions.get("healthBarElement"), x + 27 + i, y);
+                batch.draw(textureRegions.get("healthBarElement"), x + 27 + i, y + 4);
             }
 
-            x = SCREEN_WIDTH - margin;
-            batch.draw(textureRegions.get("healthBarOrange"), SCREEN_WIDTH - margin, y);
+            x = camera.position.x + SCREEN_WIDTH/2 - margin - textureRegions.get("healthBar").getRegionWidth();
+            batch.draw(textureRegions.get("healthBarOrange"), x, y);
             for (int i = 0; i < orangeShip.health * 0.77; i++) {
-                batch.draw(textureRegions.get("healthBarElementOrange"), x + 27 + i, y);
+                batch.draw(textureRegions.get("healthBarOrangeElement"), x + 27 + i, y + 4);
             }
         }
 
@@ -239,7 +239,7 @@ public class GameScreen extends AbstractScreen {
 
             GlyphLayout layout = new GlyphLayout(font, won? "l33t h4x0r!": "get rekt nub!");
 
-            font.draw(batch, layout, SCREEN_WIDTH/2, SCREEN_HEIGHT/2 - 20);
+            font.draw(batch, layout, camera.position.x, camera.position.y - 20);
         }
 
         batch.end();

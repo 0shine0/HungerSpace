@@ -820,6 +820,40 @@ Effects/Red Explosion/1
   index: 16
 
 textureAtlas14.png
+size: 512,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+HUD/healthBar
+  rotate: false
+  xy: 2, 27
+  size: 140, 32
+  orig: 140, 32
+  offset: 0, 0
+  index: -1
+HUD/healthBarBlueElement
+  rotate: false
+  xy: 2, 2
+  size: 7, 23
+  orig: 7, 23
+  offset: 0, 0
+  index: -1
+HUD/healthBarOrange
+  rotate: false
+  xy: 144, 27
+  size: 140, 32
+  orig: 140, 32
+  offset: 0, 0
+  index: -1
+HUD/healthBarOrangeElement
+  rotate: false
+  xy: 286, 36
+  size: 7, 23
+  orig: 7, 23
+  offset: 0, 0
+  index: -1
+
+textureAtlas15.png
 size: 4096,256
 format: RGBA8888
 filter: Nearest,Nearest
@@ -860,7 +894,7 @@ Menu Screen/newGameActivated
   offset: 0, 0
   index: -1
 
-textureAtlas15.png
+textureAtlas16.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -922,7 +956,7 @@ Red/spaceship_enemy_red
   offset: 0, 0
   index: -1
 
-textureAtlas16.png
+textureAtlas17.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -949,7 +983,7 @@ Red/comm_redship/3
   offset: 0, 0
   index: -1
 
-textureAtlas17.png
+textureAtlas18.png
 size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1018,7 +1052,7 @@ Red/Enemy_animation/spaceship_enemy_start
   offset: 0, 0
   index: -1
 
-textureAtlas18.png
+textureAtlas19.png
 size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1059,7 +1093,7 @@ Red/small_ship_animation/5
   offset: 0, 0
   index: -1
 
-textureAtlas19.png
+textureAtlas20.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1086,7 +1120,7 @@ Red/Spacebombs/3
   offset: 0, 0
   index: -1
 
-textureAtlas20.png
+textureAtlas21.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
