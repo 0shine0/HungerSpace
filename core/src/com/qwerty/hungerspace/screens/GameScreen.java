@@ -97,7 +97,7 @@ public class GameScreen extends AbstractScreen {
 
                     String a = choice == 0? a1: choice == 1? a2: choice == 2? a3: a4;
                     synchronized(rigidBodies){
-                        rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f)));
+                        rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f), 0.5f));
                     }
                 }
             }
@@ -296,7 +296,7 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
-                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot");
+                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot", 1.0f);
                 synchronized(rigidBodies){
                     rigidBodies.add(playerShip);
                 }
@@ -307,7 +307,7 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip23")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip24")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip25")));
-                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot");
+                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot", 1.0f);
                 synchronized(rigidBodies){
                     rigidBodies.add(enemyShip);
                 }
@@ -323,7 +323,7 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip23")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip24")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip25")));
-                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot");
+                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot", 1.0f);
                 synchronized(rigidBodies){
                     rigidBodies.add(playerShip);
                 }
@@ -334,7 +334,7 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
-                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot");
+                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot", 1.0f);
                 synchronized(rigidBodies){
                     rigidBodies.add(enemyShip);
                 }

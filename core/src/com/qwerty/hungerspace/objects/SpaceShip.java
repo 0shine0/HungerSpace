@@ -25,9 +25,11 @@ public class SpaceShip extends SphereObject{
     private float accelerationFactor;
     private boolean isAccelerating;
 
-    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor, Vector2 pos, String laserKey) {
+    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor, Vector2 pos, String laserKey, float mass) {
         this.scale = scale;
         this.accelerationFactor = accelerationFactor;
+        
+        this.mass = mass;
         
         this.laserKey = laserKey;
         
@@ -106,6 +108,16 @@ public class SpaceShip extends SphereObject{
     @Override
     public void collisionResult(SphereObject body) {
         speed.scl(-0.5f);
+        body.speed.scl(-0.5f);
+//        speed.x = ((mass - body.mass)/(mass + body.mass)*speed.x) + (2*body.mass/(mass + body.mass)*body.speed.x);
+//        if(body instanceof SpaceShip){
+//            body.speed.x = ((body.mass - mass)/(mass + body.mass)*body.speed.x) + (2*mass/(mass + body.mass)*speed.x);
+//        }
+//        
+//        speed.y = ((mass - body.mass)/(mass + body.mass)*speed.y) + (2*body.mass/(mass + body.mass)*body.speed.y);
+//        if(body instanceof SpaceShip){
+//            body.speed.y = ((body.mass - mass)/(mass + body.mass)*body.speed.y) + (2*mass/(mass + body.mass)*speed.y);
+//        }
 
         HungerSpaceMain.sounds.get("rockCollision").play();
     }

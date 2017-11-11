@@ -10,6 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.screens.GameScreen;
 
 public abstract class SphereObject extends SpaceObject{
+    public float mass = 0.0f;
+    
     public float radius;
     public static final float epsilon = 0.01f;
     public List<SpaceObject> exceptions = new ArrayList<SpaceObject>();
@@ -53,14 +55,14 @@ public abstract class SphereObject extends SpaceObject{
     public void handleCollisions(){
         if (position.x - radius <= -SCREEN_WIDTH) {
             position.x = -SCREEN_WIDTH + radius + epsilon;
-            speed.scl(-0.2f);
+            speed.x *= -0.2f;
             if(this instanceof LaserShot){
                 GameScreen.toRemoveRigidBody.add(this);
             }
         }
         else if(position.x + radius >= SCREEN_WIDTH){
             position.x = SCREEN_WIDTH - radius - epsilon;
-            speed.scl(-0.2f);
+            speed.x *= -0.2f;
             if(this instanceof LaserShot){
                 GameScreen.toRemoveRigidBody.add(this);
             }
@@ -68,14 +70,14 @@ public abstract class SphereObject extends SpaceObject{
 
         if (position.y - radius <= -SCREEN_HEIGHT) {
             position.y = -SCREEN_HEIGHT + radius + epsilon;
-            speed.scl(-0.2f);
+            speed.y *= -0.2f;
             if(this instanceof LaserShot){
                 GameScreen.toRemoveRigidBody.add(this);
             }
         }
         else if(position.y + radius >= SCREEN_HEIGHT){
             position.y = SCREEN_HEIGHT - radius - epsilon;
-            speed.scl(-0.2f);
+            speed.y *= 0.2f;
             if(this instanceof LaserShot){
                 GameScreen.toRemoveRigidBody.add(this);
             }

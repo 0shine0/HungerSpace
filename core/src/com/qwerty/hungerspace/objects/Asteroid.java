@@ -12,7 +12,7 @@ import java.util.List;
 public class Asteroid extends SphereObject{
     List<TextureRegion> poofFrames = new ArrayList<TextureRegion>();
 
-    public Asteroid(TextureRegion image, float scale, Vector2 position) {
+    public Asteroid(TextureRegion image, float scale, Vector2 position, float mass) {
         this.scale = scale;
         this.position = position;
         objectImage = image;
@@ -55,6 +55,12 @@ public class Asteroid extends SphereObject{
 
     @Override
     public void collisionResult(SphereObject body) {
-        speed = speed.scl(-1.0f);
+        speed.scl(-0.5f);
+        body.speed.scl(-0.5f);
+//        speed.x = ((mass - body.mass)/(mass + body.mass)*speed.x) + (2*body.mass/(mass + body.mass)*body.speed.x);
+//        body.speed.x = ((body.mass - mass)/(mass + body.mass)*body.speed.x) + (2*mass/(mass + body.mass)*speed.x);
+//        
+//        speed.y = ((mass - body.mass)/(mass + body.mass)*speed.y) + (2*body.mass/(mass + body.mass)*body.speed.y);
+//        body.speed.y = ((body.mass - mass)/(mass + body.mass)*body.speed.y) + (2*mass/(mass + body.mass)*speed.y);
     }
 }
