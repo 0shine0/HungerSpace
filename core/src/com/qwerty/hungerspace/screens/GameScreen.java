@@ -154,6 +154,7 @@ public class GameScreen extends AbstractScreen {
         batch.setProjectionMatrix(camera.combined);
 
         drawBackground(batch);
+
         for (SpaceObject rigidBody : rigidBodies) {
             rigidBody.render(batch);
         }

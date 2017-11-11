@@ -12,6 +12,7 @@ import com.qwerty.hungerspace.assets.AssetHolder;
 import com.qwerty.hungerspace.screens.AbstractScreen;
 import com.qwerty.hungerspace.screens.GameScreen;
 import com.qwerty.hungerspace.screens.GameScreensManager;
+import com.qwerty.hungerspace.screens.IntroScreen;
 import com.qwerty.hungerspace.screens.MenuScreen;
 
 import java.util.HashMap;
@@ -61,6 +62,7 @@ public class HungerSpaceMain extends ApplicationAdapter {
         assetHolder = new AssetHolder();
         assetHolder.textureAtlas = assetManager.get("texture/textureAtlas.atlas", TextureAtlas.class);
 
+        screens.put("intro", new IntroScreen(this));
         screens.put("menu", new MenuScreen(this));
         screens.put("game", new GameScreen(this));
         screensManager.pushScreen(screens.get("menu"));

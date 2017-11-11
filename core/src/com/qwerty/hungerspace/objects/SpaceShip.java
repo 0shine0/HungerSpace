@@ -1,12 +1,11 @@
 package com.qwerty.hungerspace.objects;
 
-import java.util.List;
-
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.screens.GameScreen;
+
+import java.util.List;
 
 public class SpaceShip extends SphereObject{
     Animation<TextureRegion> spaceAnim;
@@ -32,7 +31,7 @@ public class SpaceShip extends SphereObject{
         spaceAnim.setPlayMode(PlayMode.LOOP);
         
         animTime = 0.0f;
-        objectImage = (TextureRegion) spaceAnim.getKeyFrame(animTime, true);
+        objectImage = spaceAnim.getKeyFrame(animTime, true);
 
         updateCollider();
         

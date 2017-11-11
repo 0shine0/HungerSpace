@@ -1,7 +1,7 @@
 package com.qwerty.hungerspace.screens;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.assets.AssetHolder;
@@ -15,7 +15,7 @@ public abstract class AbstractScreen {
      * The active camera that the screen should render through. Note that multiple camera's are
      * permitted in a single screen but only one camera can be active at a given time.
      */
-    protected OrthographicCamera camera;
+    protected Camera camera;
 
     protected AssetHolder assetHolder;
     protected AssetManager assetManager;
@@ -60,7 +60,7 @@ public abstract class AbstractScreen {
     /**
      * @return the camera
      */
-    public OrthographicCamera getCamera() {
+    public Camera getCamera() {
         return camera;
     }
 
