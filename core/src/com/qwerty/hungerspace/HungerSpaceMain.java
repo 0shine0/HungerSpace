@@ -66,7 +66,7 @@ public class HungerSpaceMain extends ApplicationAdapter {
         screens.put("intro", new IntroScreen(this));
         screens.put("menu", new MenuScreen(this));
         screens.put("game", new GameScreen(this));
-        screensManager.pushScreen(screens.get("menu"));
+        screensManager.pushScreen(screens.get("intro"));
     }
 
     @Override

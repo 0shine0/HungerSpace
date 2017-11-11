@@ -255,7 +255,7 @@ public class GameScreen extends AbstractScreen {
             e.printStackTrace();
         }
     }
-    
+
     public void connectSocket(){
         try{
             socket = IO.socket("http://"+serverUrl+":8081");

@@ -30,6 +30,8 @@ public class MenuScreen extends AbstractScreen {
     private int buttonEndX;
     private int buttonStartY;
 
+    private boolean b = false;
+
     public MenuScreen(HungerSpaceMain game) {
         super(game);
 
@@ -46,13 +48,16 @@ public class MenuScreen extends AbstractScreen {
         buttonStartY = 225;
 
         HungerSpaceMain.sounds.put("uiHover", Gdx.audio.newSound(Gdx.files.internal("sounds/uiHover.ogg")));
-
-        Music music = Gdx.audio.newMusic(Gdx.files.internal("music/dreadnaught.ogg"));
-        music.play();
     }
 
     @Override
     public void update(float delta) {
+        if (!b) {
+            b = true;
+            Music music = Gdx.audio.newMusic(Gdx.files.internal("music/dreadnaught.ogg"));
+            music.play();
+        }
+
         int lastActivedButton = activatedButton;
 
         activatedButton = -1;

@@ -2,9 +2,11 @@ package com.qwerty.hungerspace.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.qwerty.hungerspace.HungerSpaceMain;
@@ -12,6 +14,7 @@ import com.qwerty.hungerspace.HungerSpaceMain;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
 import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 import static java.awt.Color.PINK;
@@ -31,11 +34,53 @@ public class IntroScreen extends AbstractScreen {
 
     private Music music;
 
+    FrameBuffer fbo;
+    TextureRegion fboTr;
+    Sprite fboSp;
+    ShaderProgram shaderProgram;
+
     public IntroScreen(HungerSpaceMain game) {
         super(game);
         font = new BitmapFont(Gdx.files.internal("fonts/baron-neue.fnt"), Gdx.files.internal("fonts/baron-neue.png"), false);
         lineHeight = font.getLineHeight();
+        fbo = FrameBuffer.createFrameBuffer(Pixmap.Format.RGB565, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+        fboTr = new TextureRegion(fbo.getColorBufferTexture());
+        fboSp = new Sprite(fboTr);
+        fboSp.flip(false, true);
 
+        String vs = "attribute vec4 a_position;\n" +
+                "attribute vec4 a_color;\n" +
+                "attribute vec2 a_texCoord0;\n" +
+                "\n" +
+                "uniform mat4 u_projTrans;\n" +
+                "\n" +
+                "varying vec4 v_color;\n" +
+                "varying vec2 v_texCoords;\n" +
+                "\n" +
+                "void main() {\n" +
+                "    v_color = a_color;\n" +
+                "    v_texCoords = a_texCoord0;\n" +
+                "    gl_Position = u_projTrans * a_position;\n" +
+                "}\n";
+
+        String fs = "#ifdef GL_ES\n" +
+                "    precision mediump float;\n" +
+                "#endif\n" +
+                "\n" +
+                "varying vec4 v_color;\n" +
+                "varying vec2 v_texCoords;\n" +
+                "uniform sampler2D u_texture;\n" +
+                "uniform mat4 u_projTrans;\n" +
+                "\n" +
+                "void main() {\n" +
+                "        float xScale = 1 - v_texCoords.y/2;\n" +
+                "        float x = (v_texCoords.x - 0.5f) / xScale + 0.5f;\n" +
+                "        vec3 color = texture2D(u_texture, vec2(x, v_texCoords.y)).rgb;\n" +
+                "\n" +
+                "        gl_FragColor = vec4(color, 1.0);\n" +
+                "}";
+
+        shaderProgram = new ShaderProgram(vs, fs);
     }
 
     @Override
@@ -57,6 +102,12 @@ public class IntroScreen extends AbstractScreen {
 
     @Override
     public void render(SpriteBatch batch) {
+        fbo.begin();
+
+        GL20 gl = Gdx.graphics.getGL20();
+        gl.glClearColor(0, 0, 0, 0);
+        gl.glClear(GL_COLOR_BUFFER_BIT);
+
         if (timeElapsed < 7) {
             float y = (SCREEN_HEIGHT - 2*lineHeight - margin) / 2 + 3*margin;
 
@@ -103,9 +154,12 @@ public class IntroScreen extends AbstractScreen {
 
             float y = -margin + (timeElapsed - 15) * 40;
 
+            float[] vert = fboSp.getVertices();
+            vert[5] += 20; // top-left vertex x co-ordinate
+            vert[10] -= 20; // top-right vertex x co-ordinate
+
             List<String> lines = new ArrayList<String>();
-            lines.add("HONGER*");
-            lines.add("SPACE");
+            lines.add("HONGER SPACE*");
             lines.add("*So hungry that I can't even spell right.");
             lines.add("");
             lines.add("It is a period of civil war. Rebel spaceships have been captured,");
@@ -128,6 +182,16 @@ public class IntroScreen extends AbstractScreen {
                 music.setVolume((42 - timeElapsed) / 5);
             }
         }
+
+        fbo.end();
+
+        batch.begin();
+        if (timeElapsed > 15) {
+            batch.setShader(shaderProgram);
+        }
+        batch.draw(fboSp, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        batch.setShader(null);
+        batch.end();
     }
 
     @Override
