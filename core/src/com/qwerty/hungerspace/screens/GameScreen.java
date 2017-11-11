@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -25,7 +26,7 @@ import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
  *
  */
 public class GameScreen extends AbstractScreen {
-    private Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
+    public static Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
     public static List<SpaceObject> rigidBodies = new ArrayList<SpaceObject>();
     
     SpaceShip playerShip;
@@ -47,6 +48,10 @@ public class GameScreen extends AbstractScreen {
         textureRegions.put("spaceShip14", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/4"));
         textureRegions.put("spaceShip15", assetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/5"));
         textureRegions.put("brownAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
+        textureRegions.put("darkAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
+        textureRegions.put("greyAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gay_2"));
+        textureRegions.put("grey2Aestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gray"));
+        textureRegions.put("laserShot", assetHolder.textureAtlas.findRegion("Blue/bullet"));
         
         List<TextureRegion> spaceShip = new ArrayList<TextureRegion>();
         spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
@@ -57,7 +62,34 @@ public class GameScreen extends AbstractScreen {
 
         playerShip = new SpaceShip(spaceShip, 0.2f, 500);
         rigidBodies.add(playerShip);
-        rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get("brownAestroid")), 0.3f, new Vector2(150.0f, 150.0f)));
+        
+        int m = (HungerSpaceMain.SCREEN_WIDTH * 2)/200;
+        int n = (HungerSpaceMain.SCREEN_HEIGHT * 2)/200;
+        
+        String a1 = "brownAestroid";
+        String a2 = "darkAestroid";
+        String a3 = "grey2Aestroid";
+//        String a4 = "greyAestroid";
+        String a;
+        for(int i=0; i< m; i++){
+            for(int j=0; j< n; j++){
+                Random rand = new Random();
+                if(rand.nextBoolean()){
+                    int choice = rand.nextInt(4);
+                    if(choice == 0){
+                        a = a1;
+                    }else if(choice == 1){
+                        a = a2;
+                    }else if(choice == 2){
+                        a = a3;
+                    }else{
+                        a = a3;
+                    }
+                    Gdx.app.log("a", a);
+                    rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f)));
+                }
+            }
+        }
 
         Random random = HungerSpaceMain.getRandom();
         for (int i = 0; i < mapWidth; i++) {
@@ -99,14 +131,20 @@ public class GameScreen extends AbstractScreen {
         if(Gdx.input.isKeyPressed(Keys.W)) {
             playerShip.applyAcceleration();
         }
-
-        playerShip.update(delta);
+        if(Gdx.input.isButtonPressed(Buttons.LEFT)) {
+            playerShip.fireLaserShot(delta);
+        }
+        
+        List<SpaceObject> bodies = new ArrayList<SpaceObject>(rigidBodies);
+        
+        for (SpaceObject rigidBody : bodies) {
+            rigidBody.update(delta);
+        }
+        
         cameraPosition.set(playerShip.position.x, playerShip.position.y);
 
         camera.position.set(cameraPosition, 0);
         camera.update();
-
-        Gdx.app.log("ASD", playerShip.position.x + " " + playerShip.position.y);
     }
 
     @Override
@@ -116,14 +154,9 @@ public class GameScreen extends AbstractScreen {
         batch.setProjectionMatrix(camera.combined);
 
         drawBackground(batch);
-<<<<<<< HEAD
-=======
-
         for (SpaceObject rigidBody : rigidBodies) {
             rigidBody.render(batch);
-
         }
->>>>>>> b17d57a67d08317925dffffa98fb9ac62d08d974
 
         batch.end();
     }

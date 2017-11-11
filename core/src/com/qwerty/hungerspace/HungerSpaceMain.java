@@ -10,11 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.qwerty.hungerspace.assets.AssetHolder;
 import com.qwerty.hungerspace.screens.AbstractScreen;
-import com.qwerty.hungerspace.screens.EndGameScreen;
 import com.qwerty.hungerspace.screens.GameScreen;
 import com.qwerty.hungerspace.screens.GameScreensManager;
 import com.qwerty.hungerspace.screens.MenuScreen;
-import com.qwerty.hungerspace.screens.PauseScreen;
 
 import java.util.HashMap;
 import java.util.Map;
