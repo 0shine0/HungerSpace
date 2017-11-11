@@ -3,6 +3,7 @@ package com.qwerty.hungerspace.objects;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.qwerty.hungerspace.screens.GameScreen;
 
 import java.util.List;
