@@ -35,11 +35,16 @@ import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 public class GameScreen extends AbstractScreen {
     public static Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
     public static List<SpaceObject> rigidBodies = new ArrayList<SpaceObject>();
+    public static List<SpaceObject> toRemoveRigidBody = new ArrayList<SpaceObject>();
     public static List<Poof> particles = new ArrayList<Poof>();
     public static List<Poof> toRemoveParticles = new ArrayList<Poof>();
 
     SpaceShip playerShip;
     SpaceShip enemyShip;
+    
+    boolean enemyLaserFired = false;
+    Vector2 enemyLaserPos;
+    float enemyLaserDirection;
     
     private boolean sendData = false;
     
@@ -55,7 +60,7 @@ public class GameScreen extends AbstractScreen {
     public GameScreen(HungerSpaceMain game) {
         super(game);
         
-        serverUrl = "192.168.43.17";
+        serverUrl = "localhost";
         
         textureRegions.put("background", AssetHolder.textureAtlas.findRegion("Background/background"));
         textureRegions.put("spaceShip11", AssetHolder.textureAtlas.findRegion("Blue/Small_ship_blue/1"));
@@ -91,7 +96,9 @@ public class GameScreen extends AbstractScreen {
                     int choice = rand.nextInt(4);
 
                     String a = choice == 0? a1: choice == 1? a2: choice == 2? a3: a4;
-                    rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f)));
+                    synchronized(rigidBodies){
+                        rigidBodies.add(new Asteroid(new TextureRegion(textureRegions.get(a)), 0.3f, new Vector2(-HungerSpaceMain.SCREEN_WIDTH + i*200.0f, -HungerSpaceMain.SCREEN_HEIGHT + j*200.0f)));
+                    }
                 }
             }
         }
@@ -131,10 +138,12 @@ public class GameScreen extends AbstractScreen {
             }
         }
         
-        List<SpaceObject> bodies = new ArrayList<SpaceObject>(rigidBodies);
-        
-        for (SpaceObject rigidBody : bodies) {
-            rigidBody.update(delta);
+        synchronized(rigidBodies){
+            List<SpaceObject> bodies = new ArrayList<SpaceObject>(rigidBodies);
+            
+            for (SpaceObject rigidBody : bodies) {
+                rigidBody.update(delta);
+            }
         }
 
         for (Poof particle : particles) {
@@ -155,21 +164,51 @@ public class GameScreen extends AbstractScreen {
         camera.position.set(cameraPosition, 0);
         camera.update();
         
-        if(sendData){
-            sendPosToServer(playerShip.position.x, playerShip.position.y, playerShip.direction);
+        if(playerShip != null){
+            if(sendData){
+                sendPosToServer(playerShip.position.x, playerShip.position.y, playerShip.direction);
+            }
+        }
+        
+        if(enemyShip != null){
+            if(enemyShip.health <= 0){
+                socket.emit("win");
+                gameOver = true;
+                won = true;
+            }
+        }
+        
+        if(enemyLaserFired){
+            enemyShip.fireLaserShot(delta);
+            
+            enemyLaserFired = false;
+        }
+        
+        if(gameOver){
+            if(won){
+                screensManager.popScreen();
+            }
+            else{
+                screensManager.popScreen();
+            }
+        }
+        
+        for(SpaceObject obj : toRemoveRigidBody){
+            obj.destroy();
         }
     }
 
     @Override
     public void render(SpriteBatch batch) {
-        // TODO Auto-generated method stub
         batch.begin();
         batch.setProjectionMatrix(camera.combined);
 
         drawBackground(batch);
 
-        for (SpaceObject rigidBody : rigidBodies) {
-            rigidBody.render(batch);
+        synchronized(rigidBodies){
+            for (SpaceObject rigidBody : rigidBodies) {
+                rigidBody.render(batch);
+            }
         }
 
         for (SpaceObject particle : particles) {
@@ -181,7 +220,6 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void dispose() {
-        // TODO Auto-generated method stub
 
     }
 
@@ -202,16 +240,7 @@ public class GameScreen extends AbstractScreen {
     }
     
     private void sendLaserEventToServer(float posX, float posY, float dir){
-        JSONObject data = new JSONObject();
-        try{
-            data.put("xPos", posX);
-            data.put("yPos", posY);
-            data.put("direction", dir);
-            socket.emit("laserFired", data);
-        }
-        catch(JSONException e){
-            e.printStackTrace();
-        }
+        socket.emit("laserFired");
     }
     
     private void sendPosToServer(float posX, float posY, float dir){
@@ -242,20 +271,17 @@ public class GameScreen extends AbstractScreen {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 Gdx.app.log("Server", "connected");
             }
         }).on("socketID", new Emitter.Listener() {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 JSONObject data = (JSONObject) args[0];
                 try {
                     id = data.getString("id");
                     Gdx.app.log("My ID", id);
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -263,7 +289,6 @@ public class GameScreen extends AbstractScreen {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 sendData = true;
                 List<TextureRegion> spaceShip = new ArrayList<TextureRegion>();
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
@@ -271,8 +296,10 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
-                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f));
-                rigidBodies.add(playerShip);
+                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot");
+                synchronized(rigidBodies){
+                    rigidBodies.add(playerShip);
+                }
                 
                 spaceShip = new ArrayList<TextureRegion>();
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip21")));
@@ -280,45 +307,48 @@ public class GameScreen extends AbstractScreen {
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip23")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip24")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip25")));
-                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f));
-                rigidBodies.add(enemyShip);
+                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot");
+                synchronized(rigidBodies){
+                    rigidBodies.add(enemyShip);
+                }
             };
         }).on("startGame2", new Emitter.Listener() {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 sendData = true;
                 List<TextureRegion> spaceShip = new ArrayList<TextureRegion>();
-                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
-                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip12")));
-                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
-                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
-                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
-                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f));
-                rigidBodies.add(playerShip);
-                
-                spaceShip = new ArrayList<TextureRegion>();
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip21")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip22")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip23")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip24")));
                 spaceShip.add(new TextureRegion(textureRegions.get("spaceShip25")));
-                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f));
-                rigidBodies.add(enemyShip);
+                playerShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "rLaserShot");
+                synchronized(rigidBodies){
+                    rigidBodies.add(playerShip);
+                }
+                
+                spaceShip = new ArrayList<TextureRegion>();
+                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip11")));
+                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip12")));
+                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip13")));
+                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip14")));
+                spaceShip.add(new TextureRegion(textureRegions.get("spaceShip15")));
+                enemyShip = new SpaceShip(spaceShip, 0.2f, 500, new Vector2(-HungerSpaceMain.SCREEN_WIDTH/2, 0.0f), "laserShot");
+                synchronized(rigidBodies){
+                    rigidBodies.add(enemyShip);
+                }
             };
         }).on("updatePos", new Emitter.Listener() {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 JSONObject data = (JSONObject) args[0];
                 try {
                     enemyShip.position.x = (float)data.getDouble("xPos");
                     enemyShip.position.y = (float)data.getDouble("yPos");
                     enemyShip.direction = (float)data.getDouble("direction");
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -326,25 +356,11 @@ public class GameScreen extends AbstractScreen {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
-                JSONObject data = (JSONObject) args[0];
-                try {
-                    Vector2 laserPos = new Vector2();
-                    laserPos.x = (float)data.getDouble("xPos");
-                    laserPos.y = (float)data.getDouble("yPos");
-                    float direction = (float)data.getDouble("direction");
-                    
-                    enemyShip.fireClientLaserShot(laserPos, direction);
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                  enemyLaserFired = true;
             }
         }).on("win", new Emitter.Listener() {
-            
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 gameOver = true;
                 won = true;
             }
@@ -352,7 +368,6 @@ public class GameScreen extends AbstractScreen {
             
             @Override
             public void call(Object... args) {
-                // TODO Auto-generated method stub
                 gameOver = true;
                 won = false;
             }

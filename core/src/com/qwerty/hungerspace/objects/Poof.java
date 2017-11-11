@@ -8,7 +8,7 @@ import com.qwerty.hungerspace.screens.GameScreen;
 
 import java.util.List;
 
-public class Poof extends SphereObject{
+public class Poof extends SpaceObject{
     public Animation<TextureRegion> spaceAnim;
     public float animTime;
 

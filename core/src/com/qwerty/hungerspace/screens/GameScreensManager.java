@@ -1,6 +1,7 @@
 package com.qwerty.hungerspace.screens;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.qwerty.hungerspace.HungerSpaceMain;
 
 import java.util.Stack;
 
@@ -15,11 +16,15 @@ public class GameScreensManager {
 
     public void pushScreen(AbstractScreen screen) {
         screens.push(screen);
+        screens.peek().getCamera().position.set(HungerSpaceMain.SCREEN_WIDTH / 2, HungerSpaceMain.SCREEN_HEIGHT / 2, 0);
+        screens.peek().getCamera().update();
         batch.setProjectionMatrix(screens.peek().getCamera().combined);
     }
 
     public void popScreen() {
         screens.pop();
+        screens.peek().getCamera().position.set(HungerSpaceMain.SCREEN_WIDTH / 2, HungerSpaceMain.SCREEN_HEIGHT / 2, 0);
+        screens.peek().getCamera().update();
         batch.setProjectionMatrix(screens.peek().getCamera().combined);
     }
 

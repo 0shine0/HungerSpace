@@ -29,7 +29,6 @@ io.on('connection', function(socket){
 		twoPlayerWaiting.push(new player(socket.id));
 	}
 	socket.on('updatePos', function(data){
-		console.log("moved");
 		for(var i=0; i< twoPlayerRooms.length; i++){
 			if(twoPlayerRooms[i].id1 == socket.id){
 				io.to(twoPlayerRooms[i].id2).emit('updatePos', data);
@@ -47,6 +46,19 @@ io.on('connection', function(socket){
 			}
 			else if(twoPlayerRooms[i].id2 == socket.id){
 				io.to(twoPlayerRooms[i].id1).emit('laserFired', data);
+			}
+		}
+	});
+	socket.on('lose', function(){
+		console.log("match over");
+		for(var i=0; i< twoPlayerRooms.length; i++){
+			if(twoPlayerRooms[i].id1 == socket.id){
+				io.to(twoPlayerRooms[i].id2).emit('win', {});
+				twoPlayerRooms.splice(i, 1);
+			}
+			else if(twoPlayerRooms[i].id2 == socket.id){
+				io.to(twoPlayerRooms[i].id1).emit('win', {});
+				twoPlayerRooms.splice(i, 1);
 			}
 		}
 	});

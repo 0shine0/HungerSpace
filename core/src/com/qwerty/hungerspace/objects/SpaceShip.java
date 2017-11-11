@@ -20,13 +20,16 @@ public class SpaceShip extends SphereObject{
     private float cooldownTime;
     
     private float laserSpeed = 500.0f;
+    private String laserKey;
     
     private float accelerationFactor;
     private boolean isAccelerating;
 
-    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor, Vector2 pos) {
+    public SpaceShip(List<TextureRegion> animations, float scale, float accelerationFactor, Vector2 pos, String laserKey) {
         this.scale = scale;
         this.accelerationFactor = accelerationFactor;
+        
+        this.laserKey = laserKey;
         
         position = pos;
         
@@ -69,19 +72,11 @@ public class SpaceShip extends SphereObject{
         isAccelerating = false;
         
         handleCollisions();
-
-        if (position.x - radius <= -SCREEN_WIDTH || position.x + radius >= SCREEN_WIDTH) {
-            speed.x *= -1;
-        }
-
-        if (position.y - radius <= -SCREEN_HEIGHT || position.y + radius >= SCREEN_HEIGHT) {
-            speed.y *= -1;
-        }
     }
     
     public void fireLaserShot(float delta){
         if(cooldownTime <= 0){
-            LaserShot laser = new LaserShot(GameScreen.textureRegions.get("laserShot"), 0.3f, new Vector2(position), laserSpeed, direction);
+            LaserShot laser = new LaserShot(GameScreen.textureRegions.get(laserKey), 0.3f, new Vector2(position), laserSpeed, direction);
             GameScreen.rigidBodies.add(laser);
             exceptions.add(laser);
             laser.exceptions.add(this); 
@@ -93,7 +88,7 @@ public class SpaceShip extends SphereObject{
     }
     
     public void fireClientLaserShot(Vector2 pos, float dir){
-        LaserShot laser = new LaserShot(GameScreen.textureRegions.get("rLaserShot"), 0.3f, pos, laserSpeed, dir);
+        LaserShot laser = new LaserShot(GameScreen.textureRegions.get(laserKey), 0.3f, pos, laserSpeed, dir);
         GameScreen.rigidBodies.add(laser);
         exceptions.add(laser);
         laser.exceptions.add(this); 
@@ -110,7 +105,7 @@ public class SpaceShip extends SphereObject{
 
     @Override
     public void collisionResult(SphereObject body) {
-        speed = speed.scl(-1.1f);
+        speed.scl(-0.5f);
 
         HungerSpaceMain.sounds.get("rockCollision").play();
     }
