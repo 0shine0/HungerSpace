@@ -67,11 +67,11 @@ public class GameScreen extends AbstractScreen {
         }
 
         /*
-        boolean[] cellStatus = new boolean[9];
         for (int iteration = 0; iteration < 5; iteration++) {
             for (int i = 0; i < mapWidth; i++) {
                 for (int j = 0; j < mapHeight; j++) {
-                    int iter = 0;
+
+                    int liveNeighbors = 0;
                     for (int ii = -1; ii < 2; ii++) {
                         for (int jj = -1; jj < 2; jj++) {
                             cellStatus[iter++] = getMapAt(i + ii, )
@@ -105,6 +105,8 @@ public class GameScreen extends AbstractScreen {
 
         camera.position.set(cameraPosition, 0);
         camera.update();
+
+        Gdx.app.log("ASD", playerShip.position.x + " " + playerShip.position.y);
     }
 
     @Override
@@ -115,7 +117,11 @@ public class GameScreen extends AbstractScreen {
 
         drawBackground(batch);
 
-        playerShip.render(batch);
+        for (SpaceObject rigidBody : rigidBodies) {
+            rigidBody.render(batch);
+
+        }
+
         batch.end();
     }
 

@@ -13,9 +13,6 @@ public class SpaceShip extends SphereObject{
     Animation<TextureRegion> spaceAnim;
     float animTime;
     
-    public Vector2 speed = new Vector2();
-    public float direction;
-    
     private float accelerationFactor;
     private boolean isAccelerating;
 
@@ -28,6 +25,8 @@ public class SpaceShip extends SphereObject{
         
         animTime = 0.0f;
         objectImage = (TextureRegion) spaceAnim.getKeyFrame(animTime, true);
+
+        updateCollider();
     }
     
     public void update(float delta){
@@ -46,18 +45,9 @@ public class SpaceShip extends SphereObject{
 
         isAccelerating = false;
         
-        updateCollider();
-        
         handleCollisions();
     }
     
-    public void render(SpriteBatch batch) {
-        batch.draw(objectImage, position.x - objectImage.getRegionWidth()/2, position.y - 
-                objectImage.getRegionHeight()/2, objectImage.getRegionWidth()/2, 
-                objectImage.getRegionHeight()/2, objectImage.getRegionWidth(), 
-                objectImage.getRegionHeight(), scale, scale, direction * 180 / 3.141f);
-    }
-
     public void applyAcceleration() {
         isAccelerating = true;
     }

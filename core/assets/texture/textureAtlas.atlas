@@ -1,35 +1,35 @@
 
 textureAtlas.png
-size: 4096,1024
+size: 2048,512
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Aestroids/aestroid_brown
   rotate: false
-  xy: 2, 2
-  size: 512, 512
-  orig: 512, 512
+  xy: 2, 3
+  size: 446, 391
+  orig: 446, 391
   offset: 0, 0
   index: -1
 Aestroids/aestroid_dark
   rotate: false
-  xy: 516, 2
-  size: 512, 512
-  orig: 512, 512
+  xy: 867, 46
+  size: 424, 348
+  orig: 424, 348
   offset: 0, 0
   index: -1
 Aestroids/aestroid_gay
   rotate: false
-  xy: 1030, 2
-  size: 512, 512
-  orig: 512, 512
+  xy: 450, 2
+  size: 415, 392
+  orig: 415, 392
   offset: 0, 0
   index: 2
 Aestroids/aestroid_gray
   rotate: false
-  xy: 1544, 2
-  size: 512, 512
-  orig: 512, 512
+  xy: 1293, 70
+  size: 401, 324
+  orig: 401, 324
   offset: 0, 0
   index: -1
 
