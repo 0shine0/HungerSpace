@@ -75,7 +75,12 @@ public class GameScreen extends AbstractScreen {
         textureRegions.put("spaceShip24", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/4"));
         textureRegions.put("spaceShip25", AssetHolder.textureAtlas.findRegion("Red/small_ship_animation/5"));
         textureRegions.put("rLaserShot", AssetHolder.textureAtlas.findRegion("Red/bullet_red"));
-        
+
+        textureRegions.put("healthBar", AssetHolder.textureAtlas.findRegion("HUD/healthBar"));
+        textureRegions.put("healthBarOrange", AssetHolder.textureAtlas.findRegion("HUD/healthBarOrange"));
+        textureRegions.put("healthBarElement", AssetHolder.textureAtlas.findRegion("HUD/healthBarElement"));
+        textureRegions.put("healthBarElementOrange", AssetHolder.textureAtlas.findRegion("HUD/healthBarElementOrange"));
+
         textureRegions.put("brownAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_brown"));
         textureRegions.put("darkAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
         textureRegions.put("greyAestroid", AssetHolder.textureAtlas.findRegion("Aestroids/aestroid_gay2"));
@@ -207,6 +212,26 @@ public class GameScreen extends AbstractScreen {
 
         for (SpaceObject particle : particles) {
             particle.render(batch);
+        }
+
+        if (playerShip != null && enemyShip != null) {
+            SpaceObject orangeShip = playerShip.laserKey.charAt(0) == 'r'? playerShip: enemyShip;
+            SpaceObject blueShip = playerShip.laserKey.charAt(0) == 'r'? enemyShip: playerShip;
+
+            final int margin = 20;
+            int y = SCREEN_HEIGHT - margin - textureRegions.get("healthBar").getRegionHeight();
+
+            int x = margin;
+            batch.draw(textureRegions.get("healthBar"), x, y);
+            for (int i = 0; i < blueShip.health * 0.77; i++) {
+                batch.draw(textureRegions.get("healthBarElement"), x + 27 + i, y);
+            }
+
+            x = SCREEN_WIDTH - margin;
+            batch.draw(textureRegions.get("healthBarOrange"), SCREEN_WIDTH - margin, y);
+            for (int i = 0; i < orangeShip.health * 0.77; i++) {
+                batch.draw(textureRegions.get("healthBarElementOrange"), x + 27 + i, y);
+            }
         }
 
         if (gameOver) {

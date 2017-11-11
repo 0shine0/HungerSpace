@@ -20,7 +20,7 @@ public class SpaceShip extends SphereObject{
     private float cooldownTime;
     
     private float laserSpeed = 500.0f;
-    private String laserKey;
+    public String laserKey;
     
     private float accelerationFactor;
     private boolean isAccelerating;
