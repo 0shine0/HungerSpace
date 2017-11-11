@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -20,6 +21,7 @@ import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.objects.Asteroid;
+import com.qwerty.hungerspace.objects.Poof;
 import com.qwerty.hungerspace.objects.SpaceObject;
 import com.qwerty.hungerspace.objects.SpaceShip;
 
@@ -34,7 +36,9 @@ import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 public class GameScreen extends AbstractScreen {
     public static Map<String, TextureRegion> textureRegions = new HashMap<String, TextureRegion>();
     public static List<SpaceObject> rigidBodies = new ArrayList<SpaceObject>();
-    
+    public static List<Poof> particles = new ArrayList<Poof>();
+    public static List<Poof> toRemoveParticles = new ArrayList<Poof>();
+
     SpaceShip playerShip;
     SpaceShip enemyShip;
     
@@ -78,7 +82,7 @@ public class GameScreen extends AbstractScreen {
         textureRegions.put("darkAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_dark"));
         textureRegions.put("greyAestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gay_2"));
         textureRegions.put("grey2Aestroid", assetHolder.textureAtlas.findRegion("Aestroids/aestroid_gray"));
-        
+        textureRegions.put("boundary", assetHolder.textureAtlas.findRegion("Background/boundary"));
         int m = (HungerSpaceMain.SCREEN_WIDTH * 2)/200;
         int n = (HungerSpaceMain.SCREEN_HEIGHT * 2)/200;
         
@@ -115,6 +119,11 @@ public class GameScreen extends AbstractScreen {
         
         connectSocket();
         configSocketEvents();
+        HungerSpaceMain.sounds.put("blaster", Gdx.audio.newSound(Gdx.files.internal("sounds/blasterShoot.ogg")));
+        HungerSpaceMain.sounds.put("rockCollision", Gdx.audio.newSound(Gdx.files.internal("sounds/rockCollision.ogg")));
+        HungerSpaceMain.sounds.put("rockDestroy", Gdx.audio.newSound(Gdx.files.internal("sounds/rockDestroy.ogg")));
+        HungerSpaceMain.sounds.put("rockBulletHit", Gdx.audio.newSound(Gdx.files.internal("sounds/rockBulletHit.ogg")));
+
     }
 
     @Override
@@ -148,6 +157,19 @@ public class GameScreen extends AbstractScreen {
         for (SpaceObject rigidBody : bodies) {
             rigidBody.update(delta);
         }
+
+        for (Poof particle : particles) {
+            particle.update(delta);
+
+            if (particle.animTime >= particle.spaceAnim.getAnimationDuration()) {
+                toRemoveParticles.add(particle);
+            }
+        }
+
+        particles.removeAll(toRemoveParticles);
+        toRemoveParticles.clear();
+
+        cameraPosition.set(playerShip.position.x, playerShip.position.y);
         
         if(playerShip != null){
             cameraPosition.set(playerShip.position.x, playerShip.position.y);
@@ -173,6 +195,10 @@ public class GameScreen extends AbstractScreen {
             rigidBody.render(batch);
         }
 
+        for (SpaceObject particle : particles) {
+            particle.render(batch);
+        }
+
         batch.end();
     }
 
@@ -194,6 +220,8 @@ public class GameScreen extends AbstractScreen {
                 batch.draw(textureRegions.get("background"), i * BACKGROUND_SIZE - i, j * BACKGROUND_SIZE - j);
             }
         }
+
+        batch.draw(textureRegions.get("boundary"), -textureRegions.get("boundary").getRegionWidth()/2, -textureRegions.get("boundary").getRegionHeight()/2);
     }
     
     private void sendLaserEventToServer(float posX, float posY, float dir){

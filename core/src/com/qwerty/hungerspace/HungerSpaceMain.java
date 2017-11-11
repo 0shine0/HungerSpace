@@ -3,6 +3,7 @@ package com.qwerty.hungerspace;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -34,9 +35,11 @@ public class HungerSpaceMain extends ApplicationAdapter {
 
     private OrthographicCamera staticGameCamera;
 
-    private static Random random = new Random();
+    private static Random random = new Random(666);
 
     public Map<String, AbstractScreen> screens = new HashMap<String, AbstractScreen>();
+
+    public static Map<String, Sound> sounds = new HashMap<String, Sound>();
 
     @Override
     public void create() {

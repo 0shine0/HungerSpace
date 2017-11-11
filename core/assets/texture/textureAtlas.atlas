@@ -34,15 +34,22 @@ Aestroids/aestroid_gray
   index: -1
 
 textureAtlas2.png
-size: 2048,2048
+size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Background/background
   rotate: false
-  xy: 2, 2
+  xy: 2692, 490
   size: 1024, 1024
   orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Background/boundary
+  rotate: false
+  xy: 2, 2
+  size: 2688, 1512
+  orig: 2688, 1512
   offset: 0, 0
   index: -1
 
@@ -232,47 +239,6 @@ Blue/Small_ship_blue/5
   index: -1
 
 textureAtlas7.png
-size: 1024,256
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-Blue/Small_ship_blue_/1
-  rotate: false
-  xy: 2, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-Blue/Small_ship_blue_/2
-  rotate: false
-  xy: 132, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-Blue/Small_ship_blue_/3
-  rotate: false
-  xy: 262, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-Blue/Small_ship_blue_/4
-  rotate: false
-  xy: 392, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-Blue/Small_ship_blue_/5
-  rotate: false
-  xy: 522, 2
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
-
-textureAtlas8.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -299,7 +265,7 @@ Blue/Spacebombs/3
   offset: 0, 0
   index: -1
 
-textureAtlas9.png
+textureAtlas8.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -319,7 +285,7 @@ Blue/Spacemines/2
   offset: 0, 0
   index: -1
 
-textureAtlas10.png
+textureAtlas9.png
 size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -353,7 +319,7 @@ Blue/spaceship_blue_animation/4
   offset: 0, 0
   index: -1
 
-textureAtlas11.png
+textureAtlas10.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -478,124 +444,249 @@ Effects/Blue Effects/1
   offset: 0, 0
   index: 16
 
+textureAtlas11.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Effects/Galaxy/0
+  rotate: false
+  xy: 2, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/1
+  rotate: false
+  xy: 2, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/10
+  rotate: false
+  xy: 776, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/11
+  rotate: false
+  xy: 1034, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/12
+  rotate: false
+  xy: 776, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/13
+  rotate: false
+  xy: 1034, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/14
+  rotate: false
+  xy: 1292, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/15
+  rotate: false
+  xy: 1034, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/16
+  rotate: false
+  xy: 1292, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/2
+  rotate: false
+  xy: 260, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/3
+  rotate: false
+  xy: 2, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/4
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/5
+  rotate: false
+  xy: 518, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/6
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/7
+  rotate: false
+  xy: 518, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/8
+  rotate: false
+  xy: 776, 518
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Effects/Galaxy/9
+  rotate: false
+  xy: 518, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+
 textureAtlas12.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 2, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 0
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 2, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 1
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 260, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 2
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 2, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 3
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 260, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 4
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 518, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 5
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 260, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 6
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 518, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 7
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 776, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 8
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 518, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 9
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 776, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 10
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 1034, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 11
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 776, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 12
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 1034, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 13
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 1292, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 14
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 1034, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 15
-Effects/Galaxy/galaxy
+Effects/Proton Star/p_Sprite
   rotate: false
   xy: 1292, 260
   size: 256, 256
@@ -608,119 +699,119 @@ size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 2, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 0
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 2, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 1
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 260, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 2
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 2, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 3
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 260, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 4
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 518, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 5
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 260, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 6
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 518, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 7
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 776, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 8
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 518, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 9
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 776, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 10
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 1034, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 11
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 776, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 12
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 1034, 260
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 13
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 1292, 518
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 14
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 1034, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: 15
-Effects/Proton Star/p_Sprite
+Effects/Red Explosion/1
   rotate: false
   xy: 1292, 260
   size: 256, 256
@@ -729,131 +820,6 @@ Effects/Proton Star/p_Sprite
   index: 16
 
 textureAtlas14.png
-size: 2048,1024
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-Effects/Red Explosion/1
-  rotate: false
-  xy: 2, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 0
-Effects/Red Explosion/1
-  rotate: false
-  xy: 2, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 1
-Effects/Red Explosion/1
-  rotate: false
-  xy: 260, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 2
-Effects/Red Explosion/1
-  rotate: false
-  xy: 2, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 3
-Effects/Red Explosion/1
-  rotate: false
-  xy: 260, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 4
-Effects/Red Explosion/1
-  rotate: false
-  xy: 518, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 5
-Effects/Red Explosion/1
-  rotate: false
-  xy: 260, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 6
-Effects/Red Explosion/1
-  rotate: false
-  xy: 518, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 7
-Effects/Red Explosion/1
-  rotate: false
-  xy: 776, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 8
-Effects/Red Explosion/1
-  rotate: false
-  xy: 518, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 9
-Effects/Red Explosion/1
-  rotate: false
-  xy: 776, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 10
-Effects/Red Explosion/1
-  rotate: false
-  xy: 1034, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 11
-Effects/Red Explosion/1
-  rotate: false
-  xy: 776, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 12
-Effects/Red Explosion/1
-  rotate: false
-  xy: 1034, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 13
-Effects/Red Explosion/1
-  rotate: false
-  xy: 1292, 518
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 14
-Effects/Red Explosion/1
-  rotate: false
-  xy: 1034, 2
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 15
-Effects/Red Explosion/1
-  rotate: false
-  xy: 1292, 260
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: 16
-
-textureAtlas15.png
 size: 4096,256
 format: RGBA8888
 filter: Nearest,Nearest
@@ -894,7 +860,7 @@ Menu Screen/newGameActivated
   offset: 0, 0
   index: -1
 
-textureAtlas16.png
+textureAtlas15.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -956,7 +922,7 @@ Red/spaceship_enemy_red
   offset: 0, 0
   index: -1
 
-textureAtlas17.png
+textureAtlas16.png
 size: 4096,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -983,7 +949,7 @@ Red/comm_redship/3
   offset: 0, 0
   index: -1
 
-textureAtlas18.png
+textureAtlas17.png
 size: 2048,2048
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1052,7 +1018,7 @@ Red/Enemy_animation/spaceship_enemy_start
   offset: 0, 0
   index: -1
 
-textureAtlas19.png
+textureAtlas18.png
 size: 4096,1024
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1093,7 +1059,7 @@ Red/small_ship_animation/5
   offset: 0, 0
   index: -1
 
-textureAtlas20.png
+textureAtlas19.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
@@ -1120,7 +1086,7 @@ Red/Spacebombs/3
   offset: 0, 0
   index: -1
 
-textureAtlas21.png
+textureAtlas20.png
 size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest

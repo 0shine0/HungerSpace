@@ -3,6 +3,7 @@ package com.qwerty.hungerspace.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.screens.GameScreen;
 
 public class LaserShot extends SphereObject{
@@ -19,7 +20,7 @@ public class LaserShot extends SphereObject{
         
         health = 1;
 
-        updateCollider();
+        updateCollider(0);
         
         exceptions.add(this);
     }
@@ -46,5 +47,4 @@ public class LaserShot extends SphereObject{
         body.health -= damage;
         health = 0;
     }
-
 }

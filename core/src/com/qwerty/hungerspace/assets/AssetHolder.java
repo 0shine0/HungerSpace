@@ -9,5 +9,5 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * @author shine
  */
 public class AssetHolder {
-    public TextureAtlas textureAtlas;
+    public static TextureAtlas textureAtlas;
 }

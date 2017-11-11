@@ -4,9 +4,13 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.qwerty.hungerspace.HungerSpaceMain;
 import com.qwerty.hungerspace.screens.GameScreen;
 
 import java.util.List;
+
+import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_HEIGHT;
+import static com.qwerty.hungerspace.HungerSpaceMain.SCREEN_WIDTH;
 
 public class SpaceShip extends SphereObject{
     Animation<TextureRegion> spaceAnim;
@@ -36,7 +40,7 @@ public class SpaceShip extends SphereObject{
         animTime = 0.0f;
         objectImage = spaceAnim.getKeyFrame(animTime, true);
 
-        updateCollider();
+        updateCollider(20);
         
         exceptions.add(this);
     }
@@ -65,6 +69,14 @@ public class SpaceShip extends SphereObject{
         isAccelerating = false;
         
         handleCollisions();
+
+        if (position.x - radius <= -SCREEN_WIDTH || position.x + radius >= SCREEN_WIDTH) {
+            speed.x *= -1;
+        }
+
+        if (position.y - radius <= -SCREEN_HEIGHT || position.y + radius >= SCREEN_HEIGHT) {
+            speed.y *= -1;
+        }
     }
     
     public void fireLaserShot(float delta){
@@ -75,6 +87,8 @@ public class SpaceShip extends SphereObject{
             laser.exceptions.add(this); 
             
             cooldownTime = resetTime;
+
+            HungerSpaceMain.sounds.get("blaster").play();
         }
     }
     
@@ -89,7 +103,7 @@ public class SpaceShip extends SphereObject{
         isAccelerating = true;
     }
     
-    public void destroy(){
+    public void destroy() {
         objectImage = null;
         GameScreen.rigidBodies.remove(this);
     }
@@ -97,6 +111,7 @@ public class SpaceShip extends SphereObject{
     @Override
     public void collisionResult(SphereObject body) {
         speed = speed.scl(-1.1f);
-        
+
+        HungerSpaceMain.sounds.get("rockCollision").play();
     }
 }

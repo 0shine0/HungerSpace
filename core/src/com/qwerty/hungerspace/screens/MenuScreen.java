@@ -2,6 +2,7 @@ package com.qwerty.hungerspace.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.qwerty.hungerspace.HungerSpaceMain;
@@ -42,10 +43,17 @@ public class MenuScreen extends AbstractScreen {
         buttonStartX = (SCREEN_WIDTH - textureRegions.get("newGame").getRegionWidth()) / 2;
         buttonEndX = buttonStartX + textureRegions.get("newGame").getRegionWidth();
         buttonStartY = 225;
+
+        HungerSpaceMain.sounds.put("uiHover", Gdx.audio.newSound(Gdx.files.internal("sounds/uiHover.ogg")));
+
+        Music music = Gdx.audio.newMusic(Gdx.files.internal("music/dreadnaught.ogg"));
+        music.play();
     }
 
     @Override
     public void update(float delta) {
+        int lastActivedButton = activatedButton;
+
         activatedButton = -1;
 
         int mouseX = Gdx.input.getX();
@@ -59,6 +67,10 @@ public class MenuScreen extends AbstractScreen {
             }
 
             y -= buttonHeight + margin;
+        }
+
+        if (lastActivedButton != activatedButton) {
+            HungerSpaceMain.sounds.get("uiHover").play();
         }
 
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {

@@ -35,13 +35,17 @@ public class IntroScreen extends AbstractScreen {
         super(game);
         font = new BitmapFont(Gdx.files.internal("fonts/baron-neue.fnt"), Gdx.files.internal("fonts/baron-neue.png"), false);
         lineHeight = font.getLineHeight();
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/starWars.mp3"));
 
-        music.play();
     }
 
     @Override
     public void update(float delta) {
+        if (timeElapsed == 0) {
+            music = Gdx.audio.newMusic(Gdx.files.internal("music/starWars.mp3"));
+
+            music.play();
+        }
+
         timeElapsed += delta;
 
         if (timeElapsed >= 42) {

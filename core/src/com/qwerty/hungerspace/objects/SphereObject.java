@@ -9,12 +9,12 @@ public abstract class SphereObject extends SpaceObject{
     public float radius;
     public List<SpaceObject> exceptions = new ArrayList<SpaceObject>();
     
-    public void updateCollider(){
+    public void updateCollider(int margin) {
         if(objectImage.getRegionWidth() >= objectImage.getRegionHeight()){
-            radius = scale * objectImage.getRegionWidth()/2;
+            radius = scale * objectImage.getRegionWidth()/2 - margin;
         }
         else{
-            radius = scale * objectImage.getRegionHeight()/2;
+            radius = scale * objectImage.getRegionHeight()/2 - margin;
         }
     }
 
